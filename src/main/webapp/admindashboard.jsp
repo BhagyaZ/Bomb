@@ -253,7 +253,7 @@
       datasets: [{
         label: 'Sales Growth',
         data: salesTrendData,
-        borderColor: '#4caf50',
+        borderColor: '#36A2EB',
         fill: false
       }]
     },

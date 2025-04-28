@@ -1,4 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,7 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-<%= "hello World" %>
-    <h3>grhrthntrr</h3>
+    Hi Aro bba
 </body>
 </html>

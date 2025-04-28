@@ -1,0 +1,80 @@
+/* footer.css */
+
+/* Main footer background and text */
+.footer {
+    background-color: #1f1f1f;
+    color: #f1f1f1;
+    padding: 40px 20px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Headings inside the footer */
+.footer h3 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* Paragraphs inside the footer */
+.footer p {
+    line-height: 1.6;
+    color: #cccccc;
+    font-size: 14px;
+}
+
+/* Top section layout */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+/* About Us and Delivery sections */
+.about-us,
+.delivery {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Bottom footer layout */
+.latter-footer {
+    border-top: 1px solid #333333;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 13px;
+    color: #aaaaaa;
+}
+
+/* Copyright text */
+.latter-part-1 {
+    margin-bottom: 10px;
+}
+
+/* Footer links */
+.latter-part-2 ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.latter-part-2 li {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.latter-part-2 li:hover {
+    color: #ffffff;
+}
+
+/* Responsive behavior for larger screens */
+@media (min-width: 768px) {
+    .latter-footer {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 95%;
+    }
+}

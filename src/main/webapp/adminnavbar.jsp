@@ -25,8 +25,8 @@
         <!-- Second row: list + right items -->
         <div class="navbar-bottom-row">
             <ul class="navbar-list">
-                <li>Home</li>
-                <li>Manage User</li>
+                <li><a href="admindashboard.jsp" style="text-decoration: none; color: inherit;">Home</a></li>
+                <li><a href="usermanagement.jsp" style="text-decoration: none; color: inherit;">Manage User</a></li>
                 <li>Manage Product</li>
                 <li>Report</li>
                 <li>Inquiries</li>

@@ -1,0 +1,57 @@
+.dashboard-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px; /* space between boxes */
+    flex-wrap: wrap; /* allows wrapping on smaller screens */
+}
+
+.dashboard-container > div {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 200px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+h2 svg {
+    margin-right: 8px;
+    color: #555;
+}
+
+.cost{
+    font-size: 20px;
+    text-align: center;
+}
+
+.dashboard-container-graphs-1 {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px; /* space between the boxes */
+    align-items: flex-start; /* align top */
+
+}
+
+.items-store, .last-week, .monthly-sale{
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+.dashboard-container-graphs-2 {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px; /* Space between the boxes */
+    align-items: flex-start; /* Align the items at the top */
+}
+
+.order-status, .target, .sales-trend {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 32%; /* Adjust width so they fit in a row */
+    border-bottom: 20px;
+}

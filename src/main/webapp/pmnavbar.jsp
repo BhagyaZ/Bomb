@@ -28,8 +28,10 @@
 
                 <li>Home</li>
                 <li>Products</li>
+                <li>Payment</li>
                 <li>Orders</li>
-                <li>Logout</li>
+                <li>Feedback</li>
+                <li>Refund</li>
 
             </ul>
 

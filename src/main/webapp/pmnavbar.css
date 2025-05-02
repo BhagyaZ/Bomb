@@ -1,0 +1,116 @@
+.navbar {
+    background-color: #1f1f1f;
+    padding: 1rem 2rem;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 4px;
+}
+
+/* First row: icon with title */
+.navbar-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    font-size: 3.5rem;
+    font-weight: bold;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+/* Second row container: list + search + profile */
+.navbar-bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* List items */
+.navbar-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    margin: 0;
+    padding: 0;
+    font-size: 0.98rem;
+    justify-content: center;
+    align-items: center;
+    color: #ccc;
+}
+
+.navbar-list li {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.navbar-list li::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -4px;
+    left: 0;
+    background-color: #ccc;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.navbar-list li:hover {
+    transform: scale(1.1);
+}
+
+.navbar-list li:hover::after {
+    transform: scaleX(1);
+}
+
+/* Right side */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar-search {
+    background-color: #fff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.navbar-search input {
+    border: none;
+    outline: none;
+    padding-left: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Profile and Cart */
+.navbar-profile, .navbar-cart {
+    font-size: 1.4rem;
+    cursor: pointer;
+    position: relative; /* Needed for cart-badge */
+}
+
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+}

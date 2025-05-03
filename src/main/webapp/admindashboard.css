@@ -12,7 +12,7 @@ body {
 }
 
 .dashboard-container > div {
-    background-color: #89d6fb !important; /* Light blue background */
+    background-color: #f9f9f9 !important; /* Light blue background */
     padding: 20px;
     border-radius: 10px;
     min-width: 200px;
@@ -39,7 +39,7 @@ h2 svg {
 }
 
 .items-store, .last-week, .monthly-sale{
-    background-color: #89d6fb !important; /* Light blue background */
+    background-color: #f9f9f9 !important; /* Light blue background */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -54,7 +54,7 @@ h2 svg {
 }
 
 .order-status, .target, .sales-trend {
-    background-color: #89d6fb !important; /* Light blue background */
+    background-color: #f9f9f9 !important; /* Light blue background */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);

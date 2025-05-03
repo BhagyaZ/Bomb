@@ -1,0 +1,71 @@
+body {
+    background-color: #d4f0fc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #02577a;
+    margin: 0;
+    padding: 0;
+}
+
+.form-container {
+    background-color: #ffffff;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-header h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0277bd;
+}
+
+.form-body {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 15px;
+    align-items: center;
+}
+
+.form-body label {
+    font-weight: bold;
+    text-align: right;
+}
+
+.form-body input[type="text"],
+.form-body input[type="password"],
+.form-body input[type="email"],
+.form-body input[type="tel"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-body input:focus {
+    border-color: #0277bd;
+    outline: none;
+    box-shadow: 0 0 5px rgba(2, 119, 189, 0.5);
+}
+
+.submit-container {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 15px;
+}
+
+button {
+    background-color: #0277bd;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #039be5;
+}

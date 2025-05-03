@@ -6,7 +6,7 @@
   <!-- Include Chart.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- Include external CSS -->
-  <link rel="stylesheet" type="text/css" href="admindashboard.css">
+  <link rel="stylesheet" type="text/css" href="admindashboard.css?v=1">
 </head>
 <body>
 <div class="dashboard-container">
@@ -87,7 +87,7 @@
       datasets: [{
         label: 'Sales',
         data: salesData,
-        borderColor: '#8884d8',
+        borderColor: '#0277bd',
         fill: false,
       }]
     },
@@ -123,7 +123,7 @@
       datasets: [{
         label: 'Item Quantity',
         data: itemQuantities,
-        backgroundColor: '#8884d8',
+        backgroundColor: '#039be5',
       }]
     },
     options: {
@@ -147,7 +147,7 @@
       datasets: [{
         label: 'Monthly Sales',
         data: monthlySalesData,
-        borderColor: '#4caf50',
+        borderColor: '#00838f',
         fill: false,
       }]
     },
@@ -177,8 +177,8 @@
       labels: orderLabels,
       datasets: [{
         data: orderValues,
-        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],  // Pie slice colors
-        hoverBackgroundColor: ['#FF8C94', '#5D9BFF', '#FFE270']
+        backgroundColor: ['#0277bd', '#039be5', '#00838f'],  // Pie slice colors
+        hoverBackgroundColor: ['#039be5', '#4fc3f7', '#26c6da']
       }]
     },
     options: {
@@ -216,8 +216,8 @@
       datasets: [{
         label: 'Target Sales',
         data: targetValues,
-        backgroundColor: '#82ca9d',
-        borderColor: '#66bb6a',
+        backgroundColor: '#4fc3f7',
+        borderColor: '#0277bd',
         borderWidth: 1
       }]
     },
@@ -253,7 +253,7 @@
       datasets: [{
         label: 'Sales Growth',
         data: salesTrendData,
-        borderColor: '#36A2EB',
+        borderColor: '#01579b',
         fill: false
       }]
     },

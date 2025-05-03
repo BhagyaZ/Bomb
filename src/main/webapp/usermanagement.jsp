@@ -4,6 +4,7 @@
 <head>
     <title>Manage Users</title>
     <link rel="stylesheet" type="text/css" href="usermanagement.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 <div>
@@ -13,7 +14,7 @@
 
     <div class="manage-user-container">
         <div class="manage-user-upper-body">
-            <button onclick="location.href='addUser.jsp'">Add New User ➕</button>
+            <button onclick="location.href='addUser.jsp'"><i class="fa fa-plus"></i>Add New User </button>
         </div>
         <div class="manage-user-lower-body">
             <table>

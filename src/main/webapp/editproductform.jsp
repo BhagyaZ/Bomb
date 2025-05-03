@@ -30,7 +30,7 @@
       <label for="description">Description</label>
       <textarea id="description" name="description" rows="4"></textarea>
 
-      <button type="submit">Edit Product</button>
+      <button type="submit">Save changes</button>
     </form>
   </div>
 </main>

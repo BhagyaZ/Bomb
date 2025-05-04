@@ -28,7 +28,7 @@
                 <li><a href="admindashboard.jsp" style="text-decoration: none; color: inherit;">Home</a></li>
                 <li><a href="usermanagement.jsp" style="text-decoration: none; color: inherit;">Manage User</a></li>
                 <li><a href="pmdashboard.jsp" style="text-decoration: none; color: inherit;">Manage Product</a></li>
-                <li>Report</li>
+                <li><a href="monthlyreport.jsp" style="text-decoration: none; color: inherit;">Report</a></li>
                 <li>Inquiries</li>
                 <li>Payments</li>
                 <li>Orders</li>

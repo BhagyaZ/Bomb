@@ -17,7 +17,7 @@
 <body>
     <div class="body-container">
         <div class="generate-report-btn">
-            <button>Generate New Report</button>
+            <button onclick="location.href='generatereport.jsp'">Generate New Report</button>
         </div>
         <div class="report-container">
             <div class="latest-reports">
@@ -27,7 +27,7 @@
                             <div class="report-title">January Stock Report</div>
                             <div class="report-date">Generated: 03 Feb 2025</div>
                             <div class="report-stats">In Stock: 1500 | Sold: 340 | Low Stock: 12</div>
-                            <button class="view-btn">View Report</button>
+                            <button class="view-btn" onclick="location.href='viewreport.jsp'">View Report</button>
                         </div>
                     </li>
                     <li>

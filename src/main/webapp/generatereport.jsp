@@ -16,7 +16,7 @@
     <div class="form-header">
         <h2>Generate Stock Report</h2>
     </div>
-    <form class="form-body">
+    <form action="InsertReport" class="form-body" method="post">
         <label for="reportMonth">Report Month:</label>
         <input type="text" id="reportMonth" name="reportMonth" placeholder="e.g., January">
 

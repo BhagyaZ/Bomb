@@ -68,8 +68,6 @@
   </div>
 </div>
 
-
-
 <%-- Include footer --%>
 <%@ include file="footer.jsp" %>
 

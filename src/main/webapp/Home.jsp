@@ -84,3 +84,15 @@
         <p>1–2 Business Days</p>
     </div>
 </section>
+
+<!-- Subscribe Section -->
+<section class="subscribe-section">
+    <h2>Subscribe for Updates</h2>
+    <input type="email" placeholder="Enter your email">
+    <button>Subscribe</button>
+</section>
+
+<%@ include file="/footer.jsp" %>
+
+</body>
+</html>

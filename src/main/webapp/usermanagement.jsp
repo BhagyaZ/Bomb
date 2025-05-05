@@ -14,7 +14,7 @@
 
     <div class="manage-user-container">
         <div class="manage-user-upper-body">
-            <button onclick="location.href='addUser.jsp'"><i class="fa fa-plus"></i>Add New User </button>
+            <button onclick="location.href='addmemberform.jsp'"><i class="fa fa-plus"></i>Add New User </button>
         </div>
         <div class="manage-user-lower-body">
             <table>

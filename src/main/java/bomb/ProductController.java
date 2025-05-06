@@ -11,13 +11,14 @@ public class ProductController {
     private static Statement stmt=null;
     private static ResultSet rs=null;
 
-    private static boolean insertdata(String name,String category,String price,String quantity,String description){
+    public static boolean insertdata(String name,String category,String price,String quantity,String description){
         boolean isSuccess = false;
         try{
             con=DBConnection.getConnection();
             stmt=con.createStatement();
 
-            String sql="inseert into book values(0,'"+name+"','"+category+"','"+price+"','"+quantity+"','"+description+"')";
+
+            String sql="insert into bomb values(0,'"+name+"','"+category+"','"+price+"','"+quantity+"','"+description+"')";
             int rs=stmt.executeUpdate(sql);
             if(rs>0){
                 isSuccess=true;

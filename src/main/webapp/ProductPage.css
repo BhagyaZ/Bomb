@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+}
+
+/* Section Wrapper */
+.product-section {
+    margin: 40px 20px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Headings */
+.product-section h2 {
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    color: #222;
+    position: relative;
+    padding-left: 10px;
+    border-left: 6px solid #0074cc;
+}
+
+/* Product Grid */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+/* Product Box */
+.product-box {
+    background-color: #f0f4f8;
+    width: calc(25% - 15px); /* 4 per row */
+    height: 220px;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover Effect */
+.product-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .product-box {
+        width: calc(33.33% - 15px); /* 3 per row */
+    }
+}
+
+@media (max-width: 768px) {
+    .product-box {
+        width: calc(50% - 10px); /* 2 per row */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-box {
+        width: 100%;
+    }
+}

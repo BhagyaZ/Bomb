@@ -14,7 +14,7 @@ public class ProductController {
     public static boolean insertdata(String name,String category,String price,String quantity,String description){
         boolean isSuccess = false;
         try{
-            con=DBConnection.getConnection();
+            con= DBConnectionPM.getConnection();
             stmt=con.createStatement();
 
 

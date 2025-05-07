@@ -11,7 +11,7 @@ public class test {
             try {
                 System.out.println("Database connection successful!");
                 System.out.println("Connection details: " + connection.getCatalog());
-
+    
                 // Close the connection when done
                 connection.close();
             } catch (SQLException e) {

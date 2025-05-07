@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DBConnectionAdmin {
     private static String url ="jdbc:mysql://localhost:3308/bomb";
     private static String user ="root";
-    private static String pass ="";
+    private static String pass ="200223";
     private static Connection con;
 
     public static Connection getConnection() {

@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.Date;
 
 @WebServlet("/InsertReport")
 public class InsertReport extends HttpServlet {
@@ -33,7 +32,7 @@ public class InsertReport extends HttpServlet {
 
         if (isTrue == true) {
             String alertmessage = "Report successfully inserted into the database";
-            response.getWriter().println("<script> alert('"+alertmessage+"'); window.location.href='monthlyreport.jsp'</script>");
+            response.getWriter().println("<script> alert('"+alertmessage+"'); window.location.href='GetAllReport'</script>");
         } else {
             RequestDispatcher rd = request.getRequestDispatcher("generatereport.jsp");
             rd.forward(request, response);

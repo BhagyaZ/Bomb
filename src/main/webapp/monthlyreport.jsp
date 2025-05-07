@@ -23,12 +23,14 @@
             <div class="latest-reports">
                 <ol>
                     <li>
-                        <div class="report-item">
-                            <div class="report-title">January Stock Report</div>
-                            <div class="report-date">Generated: 03 Feb 2025</div>
-                            <div class="report-stats">In Stock: 1500 | Sold: 340 | Low Stock: 12</div>
-                            <button class="view-btn" onclick="location.href='viewreport.jsp'">View Report</button>
-                        </div>
+                        <c:forEach var="reportModels" items="${AllReport}">
+                            <div class="report-item">
+                                <div class="report-title">${AllReport.reportMonth} Stock Report</div>
+                                <div class="report-date">Generated: ${AllReport.generatedDate}</div>
+                                <div class="report-stats">In Stock: ${AllReport.inStock} | Sold: ${AllReport.soldItems} | Low Stock: ${AllReport.lowStock}</div>
+                                <button class="view-btn" onclick="location.href='viewreport.jsp'">View Report</button>
+                            </div>
+                        </c:forEach>
                     </li>
                     <li>
                         <div class="report-item">

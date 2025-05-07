@@ -13,4 +13,15 @@
         <servlet-name>InsertReport</servlet-name>
         <url-pattern>/InsertReport</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetAllReport</servlet-name>
+        <servlet-class>bomb.GetAllReport</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>GetAllReport</servlet-name>
+        <url-pattern>/GetAllReport</url-pattern>
+    </servlet-mapping>
+
 </web-app>

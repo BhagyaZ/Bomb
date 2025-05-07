@@ -21,7 +21,7 @@ public class ReportControl {
         Boolean isSuccess = false;
         try {
             //DB Connection call
-            conn = DBConnection.getConnection();
+            conn = DBConnectionPM.getConnection();
             stmt = conn.createStatement();
 
             String sql = "insert into monthlyreport values(0,'"+reportMonth +"', '"+generatedDate+"','"+inStock+"','"+soldItems+"','"+lowStock+"','"+soldOutItems+"','"+damaged+"','"+budget+"','"+refunds+"','"+targetSale+"')";

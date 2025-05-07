@@ -48,7 +48,7 @@ public class ReportControl {
         ArrayList<ReportModel> reportModels = new ArrayList<>();
 
         try{
-            conn = DBConnection.getConnection();
+            conn = DBConnectionAdmin.getConnection();
             stmt = conn.createStatement();
 
             String sql = "select * from monthlyreport where reportID = '"+convertedId+"'";
@@ -84,7 +84,7 @@ public class ReportControl {
         ArrayList<ReportModel> reportModels = new ArrayList<>();
 
         try{
-            conn = DBConnection.getConnection();
+            conn = DBConnectionAdmin.getConnection();
             stmt = conn.createStatement();
 
             String sql = "select * from monthlyreport";

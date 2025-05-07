@@ -26,12 +26,12 @@
         <div class="navbar-bottom-row">
             <ul class="navbar-list">
 
-                <li>Home</li>
-                <li>Products</li>
-                <li>Payment</li>
-                <li>Orders</li>
-                <li>Feedback</li>
-                <li>Refund</li>
+                <li><a href="pmdashboard.jsp" style="text-decoration: none; color: inherit;">Home</a></li>
+                <li><a href="#" style="text-decoration: none; color: inherit;">Products</a></li>
+                <li><a href="paymentPM.jsp" style="text-decoration: none; color: inherit;">Payment</a></li>
+                <li><a href="ordersPM.jsp" style="text-decoration: none; color: inherit;">Orders</a></li>
+                <li><a href="feedbackPM.jsp" style="text-decoration: none; color: inherit;">Feedback</a></li>
+                <li><a href="refund.jsp" style="text-decoration: none; color: inherit;">Refund</a></li>
 
             </ul>
 

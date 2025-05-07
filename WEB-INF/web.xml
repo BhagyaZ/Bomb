@@ -16,7 +16,6 @@
     </servlet-mapping>
 
     <servlet>
-<<<<<<< HEAD
         <servlet-name>GetAllReport</servlet-name>
         <servlet-class>bomb.GetAllReport</servlet-class>
     </servlet>
@@ -24,7 +23,8 @@
     <servlet-mapping>
         <servlet-name>GetAllReport</servlet-name>
         <url-pattern>/GetAllReport</url-pattern>
-=======
+    </servlet-mapping>
+    <servlet>
         <servlet-name>InsertProductServlet </servlet-name>
         <servlet-class>bomb.InsertProductServlet </servlet-class>
     </servlet>
@@ -32,7 +32,6 @@
     <servlet-mapping>
         <servlet-name>InsertProductServlet </servlet-name>
         <url-pattern>/InsertProductServlet </url-pattern>
->>>>>>> 34bfd965f50a818fa6686574f0bedb7b8a09a136
     </servlet-mapping>
 
 </web-app>

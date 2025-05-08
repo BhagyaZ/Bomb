@@ -9,7 +9,10 @@
         <servlet-name>InsertReport</servlet-name>
         <servlet-class>bomb.InsertReport</servlet-class>
     </servlet>
+<<<<<<< HEAD
+=======
 
+>>>>>>> 05b9bfc21633e187855792c41655a43feca6d6f2
     <servlet-mapping>
         <servlet-name>InsertReport</servlet-name>
         <url-pattern>/InsertReport</url-pattern>
@@ -19,13 +22,32 @@
         <servlet-name>GetAllReport</servlet-name>
         <servlet-class>bomb.GetAllReport</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>GetAllReport</servlet-name>
         <url-pattern>/GetAllReport</url-pattern>
     </servlet-mapping>
 
+<<<<<<< HEAD
+    <servlet>
+        <servlet-name>InsertProductServlet </servlet-name>
+        <servlet-class>bomb.InsertProductServlet </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsertProductServlet </servlet-name>
+        <url-pattern>/InsertProductServlet </url-pattern>
+    </servlet-mapping>
+=======
 
+>>>>>>> 05b9bfc21633e187855792c41655a43feca6d6f2
+
+    <servlet>
+        <servlet-name>UpdateReport</servlet-name>
+        <servlet-class>bomb.UpdateReport </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateReport</servlet-name>
+        <url-pattern>/UpdateReport</url-pattern>
+    </servlet-mapping>
 
 
 

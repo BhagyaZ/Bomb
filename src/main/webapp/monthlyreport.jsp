@@ -1,4 +1,6 @@
-<%--
+<%@ page import="bomb.ReportModel" %>
+<%@ page import="bomb.ReportControl" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: HP
   Date: 5/3/2025
@@ -21,100 +23,34 @@
         </div>
         <div class="report-container">
             <div class="latest-reports">
-                <ol>
-                    <li>
-                        <c:forEach var="reportModels" items="${AllReport}">
-                            <div class="report-item">
-                                <div class="report-title">${AllReport.reportMonth} Stock Report</div>
-                                <div class="report-date">Generated: ${AllReport.generatedDate}</div>
-                                <div class="report-stats">In Stock: ${AllReport.inStock} | Sold: ${AllReport.soldItems} | Low Stock: ${AllReport.lowStock}</div>
-                                <button class="view-btn" onclick="location.href='viewreport.jsp'">View Report</button>
-                            </div>
-                        </c:forEach>
-                    </li>
-                    <li>
-                        <div class="report-item">
-                            <div class="report-title">January Stock Report</div>
-                            <div class="report-date">Generated: 03 Feb 2025</div>
-                            <div class="report-stats">In Stock: 1500 | Sold: 340 | Low Stock: 12</div>
-                            <button class="view-btn">View Report</button>
-                        </div>
-                    </li>
+                <%
+                    List<ReportModel> reports = ReportControl.getAllReport();
+                    if (reports == null || reports.isEmpty()) {
+                %>
+                <p><strong>No Report available.</strong></p>
+                <%
+                } else {
+                    for (ReportModel R : reports) {
+                %>
+                <ul>
                     <li>
                         <div class="report-item">
-                            <div class="report-title">January Stock Report</div>
-                            <div class="report-date">Generated: 03 Feb 2025</div>
-                            <div class="report-stats">In Stock: 1500 | Sold: 340 | Low Stock: 12</div>
-                            <button class="view-btn">View Report</button>
+                            <div class="report-id"><%= R.getReportID() %></div>
+                            <div class="report-title"><%= R.getReportMonth() %> Stock Report</div>
+                            <div class="report-date">Generated: <%= R.getGeneratedDate() %></div>
+                            <div class="report-stats">In Stock: <%= R.getInStock() %> | Sold: <%= R.getSoldItems() %> | Low Stock: <%= R.getLowStock() %></div>
+                            <a href="viewreport.jsp?reportID=<%= R.getReportID() %>">
+                                <button class="view-btn">View Report</button>
+                            </a>
                         </div>
                     </li>
-                    <li>
-                        <div class="report-item">
-                            <div class="report-title">January Stock Report</div>
-                            <div class="report-date">Generated: 03 Feb 2025</div>
-                            <div class="report-stats">In Stock: 1500 | Sold: 340 | Low Stock: 12</div>
-                            <button class="view-btn">View Report</button>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="report-item">
-                            <div class="report-title">January Stock Report</div>
-                            <div class="report-date">Generated: 03 Feb 2025</div>
-                            <div class="report-stats">In Stock: 1500 | Sold: 340 | Low Stock: 12</div>
-                            <button class="view-btn">View Report</button>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="report-item">
-                            <div class="report-title">January Stock Report</div>
-                            <div class="report-date">Generated: 03 Feb 2025</div>
-                            <div class="report-stats">In Stock: 1500 | Sold: 340 | Low Stock: 12</div>
-                            <button class="view-btn">View Report</button>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="report-item">
-                            <div class="report-title">January Stock Report</div>
-                            <div class="report-date">Generated: 03 Feb 2025</div>
-                            <div class="report-stats">In Stock: 1500 | Sold: 340 | Low Stock: 12</div>
-                            <button class="view-btn">View Report</button>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="report-item">
-                            <div class="report-title">January Stock Report</div>
-                            <div class="report-date">Generated: 03 Feb 2025</div>
-                            <div class="report-stats">In Stock: 1500 | Sold: 340 | Low Stock: 12</div>
-                            <button class="view-btn">View Report</button>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="report-item">
-                            <div class="report-title">January Stock Report</div>
-                            <div class="report-date">Generated: 03 Feb 2025</div>
-                            <div class="report-stats">In Stock: 1500 | Sold: 340 | Low Stock: 12</div>
-                            <button class="view-btn">View Report</button>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="report-item">
-                            <div class="report-title">January Stock Report</div>
-                            <div class="report-date">Generated: 03 Feb 2025</div>
-                            <div class="report-stats">In Stock: 1500 | Sold: 340 | Low Stock: 12</div>
-                            <button class="view-btn">View Report</button>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="report-item">
-                            <div class="report-title">January Stock Report</div>
-                            <div class="report-date">Generated: 03 Feb 2025</div>
-                            <div class="report-stats">In Stock: 1500 | Sold: 340 | Low Stock: 12</div>
-                            <button class="view-btn">View Report</button>
-                        </div>
-                    </li>
-
-                </ol>
+                </ul>
+                <%
+                        }
+                    }
+                %>
             </div>
+
         </div>
 
         <div class="graph-container">

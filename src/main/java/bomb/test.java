@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 public class test {
     public static void main(String[] args) {
-        Connection connection = DBConnectionAdmin.getConnection();
+        Connection connection = DBConnectionPM.getConnection();
 
         if (connection != null) {
             try {

@@ -40,4 +40,16 @@
         <url-pattern>/UpdateReport</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>UpdateProductsServlet</servlet-name>
+        <servlet-class>bomb.UpdateProductsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateProductsServlet</servlet-name>
+        <url-pattern>/UpdateProductsServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+
 </web-app>

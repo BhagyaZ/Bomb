@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Edit Product Form</title>
+  <title>Delete Product Form</title>
   <link rel="stylesheet" href="addproductform.css">
 </head>
 <body>
@@ -43,29 +43,29 @@
 
 <main>
   <div class="form-container">
-    <h2>Edit Product</h2>
-    <form action="${pageContext.request.contextPath}/UpdateProductsServlet" method="post">
+    <h2>Delete Product</h2>
+    <form action="${pageContext.request.contextPath}/DeleteProductServlet" method="post">
 
-    <label for="id">Product ID</label>
+      <label for="id">Product ID</label>
       <input type="text" id="id" name="id" value="<%=id%>" readonly>
 
 
       <label for="name">Product Name</label>
-      <input type="text" id="name" name="name" value="<%=name%>"  required>
+      <input type="text" id="name" name="name" value="<%=name%>"  readonly>
 
       <label for="category">Category</label>
-      <input type="text" id="category" name="category" value="<%=category%>"  required>
+      <input type="text" id="category" name="category" value="<%=category%>"  readonly>
 
       <label for="price">Price ($)</label>
-      <input type="number" id="price" name="price" step="0.01" value="<%=price%>"  required>
+      <input type="number" id="price" name="price" step="0.01" value="<%=price%>"  readonly>
 
       <label for="quantity">Quantity</label>
-      <input type="number" id="quantity" name="quantity" value="<%=quantity%>"  required>
+      <input type="number" id="quantity" name="quantity" value="<%=quantity%>"  readonly>
 
       <label for="description">Description</label>
       <textarea id="description" name="description" rows="4"><%=description%></textarea>
 
-      <button type="submit">Save changes</button>
+      <button type="submit">Delete</button>
     </form>
   </div>
 </main>

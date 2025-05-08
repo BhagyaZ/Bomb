@@ -14,8 +14,8 @@
 <main>
   <div class="form-container">
     <h2>Add New Product</h2>
-    <form action="InsertProductServlet" method="post">
-      <label for="name">Product Name</label>
+    <form action="${pageContext.request.contextPath}/InsertProductServlet" method="post">
+    <label for="name">Product Name</label>
       <input type="text" id="name" name="name" required>
 
       <label for="category">Category</label>

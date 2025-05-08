@@ -49,6 +49,14 @@
         <url-pattern>/UpdateProductsServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>DeleteReport</servlet-name>
+        <servlet-class>bomb.DeleteReport </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteReport</servlet-name>
+        <url-pattern>/DeleteReport</url-pattern>
+    </servlet-mapping>
 
 
 

@@ -19,7 +19,19 @@
 
     <div class="form-header">
         <h2><%= R.getReportMonth() %> Stock Report</h2>
-        <div class="status-badge">On Target</div>
+        <%
+            String statusText;
+            String statusClass;
+            if (R.getTotalSale() > (R.getTargetSale())) {
+                statusText = "On Target";
+                statusClass = "on-target";
+            } else {
+                statusText = "Below Target";
+                statusClass = "below-target";
+            }
+        %>
+        <div class="status-badge <%= statusClass %>"><%= statusText %></div>
+
     </div>
     <div class="form-body">
         <h3>Stock Details</h3>
@@ -41,7 +53,11 @@
         <a href="updatereport.jsp?reportID=<%= R.getReportID() %>">
             <button type="button" class="action-btn">Update</button>
         </a>
-        <button class="action-btn">Delete</button>
+        <form action="<%= request.getContextPath() %>/DeleteReport" method="post" onsubmit="return confirm('Are you sure you want to delete this report?');">
+            <input type="hidden" name="id" value="<%= R.getReportID() %>">
+            <button type="submit" class="action-btn">Delete</button>
+        </form>
+
     </div>
     <%
     } else {

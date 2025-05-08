@@ -173,13 +173,23 @@ public class ReportControl {
 
 
     //Delete Data
-//    public static  boolean deletedata(String id) {
-//        int convertedId = Integer.parseInt(id);
-//        try{
-//            conn = DBConnectionAdmin.getConnection();
-//            stmt=conn.createStatement();
-//            String sql = "delete from monthlyreport where reportID = '"+convertedId+"'";
-//
-//        }
-//    }
+    public static  boolean deletedata(String id) {
+        int convertedId = Integer.parseInt(id);
+        try{
+            conn = DBConnectionAdmin.getConnection();
+            stmt=conn.createStatement();
+
+            String sql = "delete from monthlyreport where reportID = '"+convertedId+"'";
+
+            int rs = stmt.executeUpdate(sql);
+            if(rs > 0){
+                isSuccess = true;
+            } else {
+                isSuccess = false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return isSuccess;
+    }
 }

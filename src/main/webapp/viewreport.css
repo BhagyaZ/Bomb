@@ -33,12 +33,20 @@ body {
 }
 
 .status-badge {
-    background-color: #28a745;
     color: #fff;
     padding: 5px 10px;
     border-radius: 20px;
     font-size: 0.85rem;
 }
+
+.status-badge.on-target {
+    background-color: #28a745; /* green */
+}
+
+.status-badge.below-target {
+    background-color: #dc3545; /* red */
+}
+
 
 .form-body h4 {
     margin-top: 20px;
@@ -71,8 +79,20 @@ body {
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .action-btn:hover {
     background-color: #0056b3;
 }
+
+a .action-btn {
+    /* Remove underline in link-wrapped button */
+    text-decoration: none;
+}
+
+form {
+    display: inline; /* So form stays inline with the <a> */
+}
+

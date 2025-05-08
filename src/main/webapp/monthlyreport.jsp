@@ -35,7 +35,7 @@
                 <ul>
                     <li>
                         <div class="report-item">
-                            <div class="report-id"><%= R.getReportID() %></div>
+                            <div class="report-id"><%= R.getReportID() %> .</div>
                             <div class="report-title"><%= R.getReportMonth() %> Stock Report</div>
                             <div class="report-date">Generated: <%= R.getGeneratedDate() %></div>
                             <div class="report-stats">In Stock: <%= R.getInStock() %> | Sold: <%= R.getSoldItems() %> | Low Stock: <%= R.getLowStock() %></div>

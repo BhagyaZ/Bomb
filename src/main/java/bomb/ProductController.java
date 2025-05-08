@@ -142,7 +142,9 @@ public class ProductController {
         try{
             con= DBConnectionPM.getConnection();
             stmt=con.createStatement();
-            String sql ="delete from products where id='"+convID+"'";
+            String sql ="delete from products where product_id ='"+convID+"'";
+
+            int rs = stmt.executeUpdate(sql);
         }
         catch(Exception e){
             e.printStackTrace();

@@ -28,12 +28,17 @@ public class DeleteProductServlet extends HttpServlet {
             String alertMessage = "Product deleted successfully";
             request.setAttribute("alertMessage", alertMessage);
             // You can redirect or forward as needed
-            response.getWriter().println("<script>alert('" + alertMessage + "');window.location.href='viewallproducts.jsp';</script>");
-        } else {
-            List<ProductModel> productDetails = ProductController.getById(String.valueOf(id));
-            request.setAttribute("productDetails", productDetails);
+            response.getWriter().println("<script>alert('" + alertMessage + "');window.location.href='ProductDetails.jsp';</script>");
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("productdetails.jsp");
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("ProductDetails.jsp");
+            dispatcher.forward(request, response);
+
+        } else {
+            List<ProductModel> ProductDetails = ProductController.getById(String.valueOf(id));
+            request.setAttribute("ProductDetails", ProductDetails);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("ProductDetails.jsp");
             dispatcher.forward(request, response);
         }
     }

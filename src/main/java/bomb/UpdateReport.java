@@ -1,20 +1,18 @@
 package bomb;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/InsertReport")
-public class InsertReport extends HttpServlet {
+public class UpdateReport extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Get form parameters
+        // Get parameters from form (make sure names match your form inputs)
+        int reportID = Integer.parseInt(request.getParameter("reportID"));
         String reportMonth = request.getParameter("reportMonth");
         String generatedDate = request.getParameter("generatedDate");
         int inStock = Integer.parseInt(request.getParameter("inStock"));
@@ -27,20 +25,18 @@ public class InsertReport extends HttpServlet {
         double targetSale = Double.parseDouble(request.getParameter("targetSale"));
         double totalSale = Double.parseDouble(request.getParameter("totalSale"));
 
-        boolean isInserted = ReportControl.insertdata(
-                reportMonth, generatedDate, inStock, soldItems, lowStock,
-                soldOutItems, damaged, budget, refunds, targetSale, totalSale
-        );
+        // Call update method
+        boolean isSuccess = ReportControl.updatedata(reportID, reportMonth, generatedDate, inStock, soldItems, lowStock, soldOutItems, damaged, budget, refunds, targetSale, totalSale);
 
-        if (isInserted) {
-            // Show success alert and redirect
-            response.setContentType("text/html;charset=UTF-8");
-            response.getWriter().println("<script>alert('Report successfully inserted into the database');"
-                    + "window.location.href='monthlyreport.jsp';</script>");
+        // Redirect or forward based on result
+        if (isSuccess) {
+
+            String alertMessage = "Report updated successfully";
+            response.getWriter().println("<script>alert('"+alertMessage+"')</script>");
+
+            response.sendRedirect("viewreport.jsp");
         } else {
-            // Redirect back to form page if insertion fails
-            RequestDispatcher dispatcher = request.getRequestDispatcher("generatereport.jsp");
-            dispatcher.forward(request, response);
+            response.sendRedirect("updatereport.jsp");
         }
     }
 }

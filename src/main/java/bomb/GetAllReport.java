@@ -10,7 +10,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/GetAllReport")
 public class GetAllReport extends HttpServlet {
 
     private static final long serialVersionUID = 1L;

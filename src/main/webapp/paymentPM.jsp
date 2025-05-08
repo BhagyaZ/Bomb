@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>Payment</title>
-    <link rel="stylesheet" href="addproductform.css">
+    <link rel="stylesheet" href="payment.css">
 </head>
 <body>
 <main class="form-container">

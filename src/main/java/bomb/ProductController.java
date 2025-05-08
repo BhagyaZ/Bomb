@@ -1,6 +1,7 @@
 package bomb;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -57,11 +58,8 @@ public class ProductController {
                 String quantity = rs.getString(5);
                 String description = rs.getString(6);
 
-
                 ProductModel p = new ProductModel(id,name,category,price,quantity,description);
                 product.add(p);
-
-
 
 
             }
@@ -106,20 +104,29 @@ public class ProductController {
         }
         return products;
     }
-    public static boolean updatedata(String name,String category,String price,String quantity,String description){
+    public static boolean updatedata(String name,String category,String price,String quantity,String description, String id){
+        System.out.println(name);
+        System.out.println(category);
+        System.out.println(price);
+
         try {
             con = DBConnectionPM.getConnection();
             stmt = con.createStatement();
 
-            String sql ="update products set name='"+name+"', category='"+category+"' , price='"+price+"' , quantity='"+quantity+"' , description='"+description+"'"+" where id='"+Integer.parseInt(name)+"'";
-            int rs=stmt.executeUpdate(sql);
+            // Use PreparedStatement to avoid SQL injection
+            String sql = "UPDATE products SET name = ?, category = ?, price = ?, quantity = ?, description = ? WHERE product_id = ?";
 
-            if(rs>0){
-                isSuccess=true;
-            }
-            else{
-                isSuccess=false;
-            }
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, name);
+            stmt.setString(2, category);
+            stmt.setString(3, price);
+            stmt.setString(4, quantity);
+            stmt.setString(5, description);
+            stmt.setString(6, id); // Assuming 'id' is an integer
+
+            int rs = stmt.executeUpdate();
+
+            isSuccess= rs > 0;
 
         }
         catch(Exception e){
@@ -131,6 +138,7 @@ public class ProductController {
 
     public static boolean deletedata(String id){
         int convID = Integer.parseInt(id);
+
         try{
             con= DBConnectionPM.getConnection();
             stmt=con.createStatement();

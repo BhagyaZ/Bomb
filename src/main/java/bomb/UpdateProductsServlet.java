@@ -10,18 +10,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 @WebServlet("/UpdateProductsServlet")
-
 public class UpdateProductsServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
-
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String id = request.getParameter("id");
         String name = request.getParameter("name");
@@ -31,7 +22,7 @@ public class UpdateProductsServlet extends HttpServlet {
         String description = request.getParameter("description");
 
         boolean isTrue;
-        isTrue=ProductController.updatedata(name, category, price, quantity, description);
+        isTrue=ProductController.updatedata(name, category, price, quantity, description, id);
 
         if (isTrue) {
             List<ProductModel> productdetails= ProductController.getById(id);

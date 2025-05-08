@@ -1,3 +1,7 @@
+<%@ page import="bomb.DBConnectionPM" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %>
 <%@ include file="pmnavbar.jsp" %> <!-- Include navbar -->
 <!DOCTYPE html>
 <html lang="en">
@@ -11,26 +15,38 @@
 <%
 
   String id=request.getParameter("id");
-  String name=request.getParameter("name");
-  String category=request.getParameter("category");
-  String price=request.getParameter("price");
-  String quantity=request.getParameter("quantity");
-  String description=request.getParameter("description");
+
+  DBConnectionPM DBUtil =  null;
+  Connection conn = DBUtil.getConnection();
+  String sql = "SELECT * FROM products WHERE product_id = ?";
+  PreparedStatement stmt = conn.prepareStatement(sql);
+  stmt.setString(1, id);
+  ResultSet rs = stmt.executeQuery();
+
+  String name = "";
+  String category = "";
+  String price = "";
+  String quantity = "";
+  String description = "";
+
+
+  if(rs.next()) {
+    name = rs.getString("name");
+    category = rs.getString("category");
+    price = rs.getString("price");
+    quantity = rs.getString("quantity");
+    description = rs.getString("description");
+  }
 
 
 %>
-
-
-
-
-
 
 <main>
   <div class="form-container">
     <h2>Edit Product</h2>
     <form action="${pageContext.request.contextPath}/UpdateProductsServlet" method="post">
 
-      <label for="id">Product ID</label>
+    <label for="id">Product ID</label>
       <input type="text" id="id" name="id" value="<%=id%>" readonly>
 
 
@@ -47,7 +63,7 @@
       <input type="number" id="quantity" name="quantity" value="<%=quantity%>"  required>
 
       <label for="description">Description</label>
-      <textarea id="description" name="description" value="<%=description%>"  rows="4"></textarea>
+      <textarea id="description" name="description" rows="4"><%=description%></textarea>
 
       <button type="submit">Save changes</button>
     </form>

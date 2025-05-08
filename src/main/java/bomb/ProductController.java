@@ -47,7 +47,7 @@ public class ProductController {
             con= DBConnectionPM.getConnection();
             stmt=con.createStatement();
 
-            String sql="select * from bomb where id='"+convertID+"'";
+            String sql="select * from products where id='"+convertID+"'";
             rs=stmt.executeQuery(sql);
             while(rs.next()){
                 int id = rs.getInt(1);
@@ -80,7 +80,7 @@ public class ProductController {
             con= DBConnectionPM.getConnection();
             stmt=con.createStatement();
 
-            String sql="select * from bomb";
+            String sql="select * from products";
             rs=stmt.executeQuery(sql);
             while(rs.next()){
                 int id = rs.getInt(1);
@@ -105,6 +105,41 @@ public class ProductController {
 
         }
         return products;
+    }
+    public static boolean updatedata(String name,String category,String price,String quantity,String description){
+        try {
+            con = DBConnectionPM.getConnection();
+            stmt = con.createStatement();
+
+            String sql ="update products set name='"+name+"', category='"+category+"' , price='"+price+"' , quantity='"+quantity+"' , description='"+description+"'"+" where id='"+Integer.parseInt(name)+"'";
+            int rs=stmt.executeUpdate(sql);
+
+            if(rs>0){
+                isSuccess=true;
+            }
+            else{
+                isSuccess=false;
+            }
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return isSuccess;
+
+    }
+
+    public static boolean deletedata(String id){
+        int convID = Integer.parseInt(id);
+        try{
+            con= DBConnectionPM.getConnection();
+            stmt=con.createStatement();
+            String sql ="delete from products where id='"+convID+"'";
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return isSuccess;
     }
 
 

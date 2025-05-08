@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: asusb
-  Date: 5/7/2025
-  Time: 11:05 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
 <%@ page import="bomb.ProductController" %>
@@ -15,7 +8,15 @@
 <head>
   <meta charset="UTF-8">
   <title>View All Products</title>
-  <link rel="stylesheet" href="addproductform.css"> <!-- reuse same CSS -->
+  <link rel="stylesheet" href="addproductform.css">
+  <style>
+    .product-actions {
+      margin-top: 10px;
+    }
+    .product-actions button {
+      margin-right: 10px;
+    }
+  </style>
 </head>
 <body>
 
@@ -37,6 +38,11 @@
       <p><strong>Price:</strong> Rs <%= p.getPrice() %></p>
       <p><strong>Quantity:</strong> <%= p.getQuantity() %></p>
       <p><strong>Description:</strong> <%= p.getDescription() %></p>
+
+      <div class="product-actions">
+        <button onclick="window.location.href='editproductform.jsp?id=<%= p.getId() %>'">Edit</button>
+        <button onclick="if(confirm('Are you sure you want to delete this product?')) window.location.href='deleteproduct.jsp?id=<%= p.getId() %>'">Delete</button>
+      </div>
     </div>
     <%
         }
@@ -49,4 +55,3 @@
 <%@ include file="footer.jsp" %>
 </body>
 </html>
-

@@ -27,7 +27,7 @@
             <ul class="navbar-list">
 
                 <li><a href="pmdashboard.jsp" style="text-decoration: none; color: inherit;">Home</a></li>
-                <li><a href="#" style="text-decoration: none; color: inherit;">Products</a></li>
+                <li><a href="ProductDetails.jsp" style="text-decoration: none; color: inherit;">Products</a></li>
                 <li><a href="paymentPM.jsp" style="text-decoration: none; color: inherit;">Payment</a></li>
                 <li><a href="ordersPM.jsp" style="text-decoration: none; color: inherit;">Orders</a></li>
                 <li><a href="feedbackPM.jsp" style="text-decoration: none; color: inherit;">Feedback</a></li>

@@ -1,12 +1,14 @@
 package bomb;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+@WebServlet("/UpdateReport")
 public class UpdateReport extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -34,7 +36,8 @@ public class UpdateReport extends HttpServlet {
             String alertMessage = "Report updated successfully";
             response.getWriter().println("<script>alert('"+alertMessage+"')</script>");
 
-            response.sendRedirect("viewreport.jsp");
+            // after updating the report...
+            response.sendRedirect("monthlyreport.jsp?reportID=" + reportID);
         } else {
             response.sendRedirect("updatereport.jsp");
         }

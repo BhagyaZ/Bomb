@@ -10,7 +10,7 @@
 <html>
 <head>
   <title>Feedback</title>
-  <link rel="stylesheet" href="addproductform.css">
+  <link rel="stylesheet" href="feedbackPM.css">
 </head>
 <body>
 <main class="form-container">

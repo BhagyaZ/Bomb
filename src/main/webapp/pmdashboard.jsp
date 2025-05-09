@@ -31,18 +31,17 @@
             </div>
 
             <!-- Action Cards -->
-            <div class="dashboard-card action-card add-product">
-                <h3> Top-Selling Product</h3>
-                <p class="stat-value">15</p>
+            <div class="dashboard-card action-card add-product" onclick="window.location.href='addproductform.jsp'">
+                <h3>Add Products</h3>
+                <p class="stat-value">+</p>
             </div>
-
-            <div class="dashboard-card action-card add-product">
-                <h3>Products Added This Week</h3>
-                <p class="stat-value">25</p>
+            <div class="dashboard-card action-card add-product" onclick="window.location.href='editproductform.jsp'">
+                <h3>Edit Products</h3>
+                <p class="stat-value"></p>
             </div>
-            <div class="dashboard-card action-card add-product">
-                <h3>Recent Edits / Updates</h3>
-                <p class="stat-value">5</p>
+            <div class="dashboard-card action-card add-product" onclick="window.location.href='ProductDetails.jsp'">
+                <h3>View Products</h3>
+                <p class="stat-value"></p>
             </div>
         </div>
     </div>

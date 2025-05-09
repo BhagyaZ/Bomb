@@ -1,26 +1,25 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: asusb
-  Date: 5/7/2025
-  Time: 1:09 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="pmnavbar.jsp" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Payment</title>
+    <title>Payments</title>
     <link rel="stylesheet" href="payment.css">
 </head>
 <body>
-<main class="form-container">
-    <h2>Payment Section</h2>
-    <p>This is where payment history and processing will be handled.</p>
-    <ul>
-        <li>View Transactions</li>
-        <li>Refund History</li>
-        <li>Payment Gateway Settings</li>
-    </ul>
+<main>
+    <div class="page-container">
+        <h2>Payments</h2>
+        <div class="card-grid">
+            <div class="dashboard-card">
+                <h3>Total Payments</h3>
+                <p class="stat-value">Rs. 150,000</p>
+            </div>
+            <div class="dashboard-card">
+                <h3>Pending Payments</h3>
+                <p class="stat-value">Rs. 25,000</p>
+            </div>
+        </div>
+    </div>
 </main>
 <%@ include file="footer.jsp" %>
 </body>

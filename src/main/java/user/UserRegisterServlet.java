@@ -26,6 +26,13 @@ public class UserRegisterServlet extends HttpServlet {
             // Show success alert and redirect
             response.setContentType("text/html;charset=UTF-8");
             response.getWriter().println("<script>alert('Successfully Registered'); window.location.href='login.jsp';</script>");
+            //Display in profile
+            request.setAttribute("username", username);
+            request.setAttribute("email", email);
+            request.setAttribute("phone", phone);
+
+            RequestDispatcher rd = request.getRequestDispatcher("userProfile.jsp");
+            rd.forward(request, response);
 
         } else {
             // Redirect back to form page if insertion fails

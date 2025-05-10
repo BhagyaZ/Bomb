@@ -79,5 +79,43 @@ public class UserController {
         return users;
     }
 
+    public static List<UserModel> getAll() {
+        List<UserModel> userList = new ArrayList<>();
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DBConnection.getConnection();
+            stmt = conn.createStatement();
+            String sql = "SELECT * FROM user";
+            rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String name = rs.getString(2);
+                String email = rs.getString(3);
+                String password = rs.getString(4);
+                String phone = rs.getString(5);
+
+                UserModel user = new UserModel(id,name, email, password, phone);
+                userList.add(user);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (stmt != null) stmt.close();
+                if (conn != null) conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return userList;
+  }
+
 
 }

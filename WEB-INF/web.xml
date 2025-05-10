@@ -58,6 +58,24 @@
         <url-pattern>/DeleteReport</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>CustomerInsertServlet</servlet-name>
+        <servlet-class>bomb.CustomerInsertServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CustomerInsertServlet</servlet-name>
+        <url-pattern>/CustomerInsertServlet</url-pattern>
+    </servlet-mapping>
+
+    <!--User System-->
+    <servlet>
+        <servlet-name>UserRegisterServlet</servlet-name>
+        <servlet-class>user.UserRegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserRegisterServlet</servlet-name>
+        <url-pattern>/UserRegisterServlet</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>

@@ -21,3 +21,19 @@ CREATE TABLE `bomb`.`MonthlyReport` (
                                         `targetSale` DECIMAL(12, 2) NOT NULL,
                                         `totalSale` DECIMAL(12, 2) NOT NULL
 );
+
+CREATE TABLE `monthlyreport` (
+                                 `reportID` int(11) NOT NULL AUTO_INCREMENT,
+                                 `reportMonth` varchar(20) NOT NULL,
+                                 `generatedDate` date NOT NULL,
+                                 `inStock` int(11) NOT NULL,
+                                 `soldItems` int(11) NOT NULL,
+                                 `lowStock` int(11) NOT NULL,
+                                 `soldOutItems` varchar(255) DEFAULT NULL,
+                                 `damaged` int(11) NOT NULL,
+                                 `budget` decimal(12,2) NOT NULL,
+                                 `refunds` decimal(12,2) NOT NULL,
+                                 `targetSale` decimal(12,2) NOT NULL,
+                                 `totalSale` decimal(12,2) NOT NULL,
+                                 PRIMARY KEY (`reportID`)
+)

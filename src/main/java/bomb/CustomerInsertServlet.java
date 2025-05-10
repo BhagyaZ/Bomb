@@ -34,5 +34,4 @@ public class CustomerInsertServlet extends HttpServlet {
             dis2.forward(request, response);
         }
     }
-
 }

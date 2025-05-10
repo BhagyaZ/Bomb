@@ -105,7 +105,7 @@ public class CustomerController {
         try (Connection conn = DBConnectionAdmin.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            ResultSet rs = pstmt.executeQuery();
+            ResultSet rs = pstmt.executeQuery(sql);
 
             while (rs.next()) {
                 int shippingId = rs.getInt(1);
@@ -124,6 +124,7 @@ public class CustomerController {
                         recipientContactNo, senderContactNo, shippingMethod,
                         deliveryDate, personalMsg, date
                 );
+
                 shippingList.add(shipping);
             }
         } catch (Exception e) {

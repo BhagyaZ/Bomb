@@ -71,10 +71,9 @@
         <servlet-name>GetALLShippingDetailsServlet</servlet-name>
         <servlet-class>bomb.GetALLShippingDetailsServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>GetALLShippingDetailsServlet</servlet-name>
-        <url-pattern>/getAllShippingDetails</url-pattern>
+        <url-pattern>/GetALLShippingDetailsServlet</url-pattern>
     </servlet-mapping>
 
     <!--User System-->

@@ -48,9 +48,9 @@
 
     <!--   <label for="date">Order Date & Time</label>
       <input type="datetime-local" id="date" name="date" required> -->
-    <form action="getAllShippingDetails" method="post">
+<%--    <form action="getAllShippingDetails" method="post">--%>
       <button type="submit">Insert Details</button>
-    </form>
+<%--    </form>--%>
   </form>
 </div>
 </body>

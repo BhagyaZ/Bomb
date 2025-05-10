@@ -63,7 +63,7 @@ public class CustomerController {
         int convertedId = Integer.parseInt(id);
         ArrayList<CustomerModel> reportModels = new ArrayList<>();
 
-        String sql = "SELECT * FROM shippingdetails WHERE reportID = ?";
+        String sql = "SELECT * FROM shippingdetails WHERE shippingId = ?";
 
         try (Connection conn = DBConnectionAdmin.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -105,7 +105,7 @@ public class CustomerController {
         try (Connection conn = DBConnectionAdmin.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            ResultSet rs = pstmt.executeQuery(sql);
+            ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
                 int shippingId = rs.getInt(1);

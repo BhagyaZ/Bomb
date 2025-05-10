@@ -14,7 +14,7 @@
 
     <div class="shipping-container">
         <%
-            List<CustomerModel> shippingList = (List<CustomerModel>) request.getAttribute("allBOMB");
+            List<CustomerModel> shippingList = (List<CustomerModel>) request.getAttribute("allReports");
             if (shippingList == null || shippingList.isEmpty()) {
         %>
         <p><strong>No Shipping Details Available.</strong></p>

@@ -15,11 +15,15 @@
 <body>
 <div class="card">
   <h2>Login</h2>
-  <form action="/Bomb_war_exploded/UserRegisterServlet" method="post">
+  <form action="UserLoginServlet" method="post">
     <input type="text" name="username" placeholder="Username" required>
     <input type="password" name="password" placeholder="Password" required>
     <button type="submit">Login</button>
   </form>
+  <% if (request.getAttribute("error") != null) { %>
+  <p style="color:red;"><%= request.getAttribute("error") %></p>
+  <% } %>
+
   <p class="link">Don't have an account? <a href="register.jsp">Register here</a></p>
 </div>
 </body>

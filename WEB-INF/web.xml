@@ -67,6 +67,16 @@
         <url-pattern>/CustomerInsertServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>GetALLShippingDetailsServlet</servlet-name>
+        <servlet-class>bomb.GetALLShippingDetailsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>GetALLShippingDetailsServlet</servlet-name>
+        <url-pattern>/getAllShippingDetails</url-pattern>
+    </servlet-mapping>
+
     <!--User System-->
     <servlet>
         <servlet-name>UserRegisterServlet</servlet-name>
@@ -76,6 +86,16 @@
         <servlet-name>UserRegisterServlet</servlet-name>
         <url-pattern>/UserRegisterServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserLoginServlet</servlet-name>
+        <servlet-class>user.UserLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserLoginServlet</servlet-name>
+        <url-pattern>/UserLoginServlet</url-pattern>
+    </servlet-mapping>
+
 
 
 </web-app>

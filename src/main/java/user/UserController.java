@@ -1,6 +1,8 @@
 package user;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserController {
 
@@ -44,6 +46,37 @@ public class UserController {
             e.printStackTrace();
         }
         return isSuccess;
+    }
+
+    public static List<UserModel> loginValidate(String username, String password) {
+        List<UserModel> users = new ArrayList<>();
+
+        String sql = "SELECT * FROM user WHERE "+" username='"+username+"' AND password= '"+password+"' ";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String name = rs.getString(2);
+                String email = rs.getString(3);
+                String pass = rs.getString(4);
+                String phone = rs.getString(5);
+
+                UserModel u = new UserModel(id, name, email, pass, phone);
+                users.add(u);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return users;
     }
 
 

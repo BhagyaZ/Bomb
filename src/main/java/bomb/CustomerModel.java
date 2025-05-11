@@ -4,7 +4,7 @@ public class CustomerModel {
 
     private int shippingId;
     private String recipientName;
-    private String recipientAdress;
+    private String recipientAddress;
     private String city;
     private int recipientContactNo;
     private int senderContactNo;
@@ -13,11 +13,11 @@ public class CustomerModel {
     private String personalMsg;
     private String date;
 
-    public CustomerModel(int shippingId, String recipientName, String recipientAdress, String city, int recipientContactNo,
+    public CustomerModel(int shippingId, String recipientName, String recipientAddress, String city, int recipientContactNo,
                      int senderContactNo, String shippingMethod, String deliveryDate, String personalMsg, String date) {
         this.shippingId = shippingId;
         this.recipientName = recipientName;
-        this.recipientAdress = recipientAdress;
+        this.recipientAddress = recipientAddress;
         this.city = city;
         this.recipientContactNo = recipientContactNo;
         this.senderContactNo = senderContactNo;
@@ -43,12 +43,12 @@ public class CustomerModel {
         this.recipientName = recipientName;
     }
 
-    public String getRecipientAdress() {
-        return recipientAdress;
+    public String getRecipientAddress() {
+        return recipientAddress;
     }
 
-    public void setRecipientAdress(String recipientAdress) {
-        this.recipientAdress = recipientAdress;
+    public void setRecipientAddress(String recipientAddress) {
+        this.recipientAddress = recipientAddress;
     }
 
     public String getCity() {

@@ -30,7 +30,7 @@ public class CustomerInsertServlet extends HttpServlet {
             String alertMessage = "Data insert Successful";
             response.getWriter().println("<script> alert('" + alertMessage + "');window.location.href = 'reviewshippingdetails.jsp'</script>");
         } else {
-            RequestDispatcher dis2 = request.getRequestDispatcher("wrong.jsp");
+            RequestDispatcher dis2 = request.getRequestDispatcher("shippingdetails.jsp");
             dis2.forward(request, response);
         }
     }

@@ -8,12 +8,18 @@ import java.util.List;
 
 public class CustomerController {
 
+    private static boolean isSuccess;
+    private static Connection conn=null;
+    private static Statement stmt=null;
+    private static ResultSet rs=null;
+    private static PreparedStatement ps=null;
+
     // Insert data function
     public static boolean insertdata(String recipientName, String recipientAddress, String city, int recipientContactNo,
                                      int senderContactNo, String shippingMethod, String deliveryDate,
                                      String personalMsg) {
-        boolean isSuccess = false;
-        Connection conn = null;
+        isSuccess = false;
+        conn = null;
         PreparedStatement ps = null;
 
         try {
@@ -57,21 +63,24 @@ public class CustomerController {
         return isSuccess;
         }
 
-    //GetByID
-    public static List<CustomerModel> getById(String id) {
+    //getById
+    public static List<CustomerModel> getById (String Id){
 
-        int convertedId = Integer.parseInt(id);
-        ArrayList<CustomerModel> reportModels = new ArrayList<>();
+        int convertedId = Integer.parseInt(Id);
 
-        String sql = "SELECT * FROM shippingdetails WHERE shippingId = ?";
+        ArrayList <CustomerModel> bomb = new ArrayList<>();
 
-        try (Connection conn = DBConnectionAdmin.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try {
+            //DBconnection
+            Connection con=DBConnectionAdmin.getConnection();
+            stmt=con.createStatement();
 
-            pstmt.setInt(1, convertedId);
-            ResultSet rs = pstmt.executeQuery();
+            //Query
+            String sql ="select * from shippingdetails where id '"+convertedId+"'";
 
-            while (rs.next()) {
+            rs = stmt.executeQuery(sql);
+
+            while(rs.next()) {
                 int shippingId = rs.getInt(1);
                 String recipientName = rs.getString(2);
                 String recipientAddress = rs.getString(3);
@@ -79,56 +88,66 @@ public class CustomerController {
                 int recipientContactNo = rs.getInt(5);
                 int senderContactNo = rs.getInt(6);
                 String shippingMethod = rs.getString(7);
-                String deliveryDate = rs.getString(8);  // if you store as String, otherwise use rs.getDate(8)
+                String deliveryDate = rs.getString(8);
                 String personalMsg = rs.getString(9);
-                String date = rs.getString(10);         // if you store as String, otherwise use rs.getTimestamp(10)
+                String date = rs.getString(10);
 
-                CustomerModel cm = new CustomerModel(
-                        shippingId, recipientName, recipientAddress, city,
-                        recipientContactNo, senderContactNo, shippingMethod,
-                        deliveryDate, personalMsg, date
-                );
-                reportModels.add(cm);
+                CustomerModel bk = new CustomerModel(shippingId,recipientName,recipientAddress,city,recipientContactNo,senderContactNo,shippingMethod,deliveryDate,personalMsg, date);
+                bomb.add(bk);
+
             }
 
-        } catch (Exception e) {
+        }
+        catch(Exception e) {
             e.printStackTrace();
         }
-        return reportModels;
+        return bomb;
     }
 
-    //getAll data
+    //GetAll data
     public static List<CustomerModel> getAllShippingDetails() {
         List<CustomerModel> shippingList = new ArrayList<>();
-        String sql = "SELECT * FROM shippingdetails";
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
 
-        try (Connection conn = DBConnectionAdmin.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try {
+            conn = DBConnectionAdmin.getConnection();
+            stmt = conn.createStatement();
+            String sql = "SELECT * FROM shippingdetails ORDER BY shippingId DESC";
+            rs = stmt.executeQuery(sql);
 
-            ResultSet rs = pstmt.executeQuery();
-
-            while (rs.next()) {
-                int shippingId = rs.getInt(1);
-                String recipientName = rs.getString(2);
-                String recipientAddress = rs.getString(3);
-                String city = rs.getString(4);
-                int recipientContactNo = rs.getInt(5);
-                int senderContactNo = rs.getInt(6);
-                String shippingMethod = rs.getString(7);
-                String deliveryDate = rs.getString(8);  // or rs.getString(8) if you want it as String
-                String personalMsg = rs.getString(9);
-                String date = rs.getString(10); // or rs.getString(10) if you want it as String
-
+            while(rs.next()) {
                 CustomerModel shipping = new CustomerModel(
-                        shippingId, recipientName, recipientAddress, city,
-                        recipientContactNo, senderContactNo, shippingMethod,
-                        deliveryDate, personalMsg, date
+                        rs.getInt("shippingId"),
+                        rs.getString("recipientName"),
+                        rs.getString("recipientAddress"),
+                        rs.getString("city"),
+                        rs.getInt("recipientContactNo"),
+                        rs.getInt("senderContactNo"),
+                        rs.getString("shippingMethod"),
+                        rs.getString("deliveryDate"),
+                        rs.getString("personalMsg"),
+                        rs.getString("date")
                 );
+
+                //Testing
+                System.out.println(rs.getString("shippingId"));
+                System.out.println(rs.getString("recipientName"));
+                System.out.println(rs.getString("recipientAddress"));
 
                 shippingList.add(shipping);
             }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (stmt != null) stmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return shippingList;
     }

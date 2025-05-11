@@ -29,6 +29,6 @@ public class UserLoginServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        request.getRequestDispatcher("profile.jsp").forward(request, response);
+        request.getRequestDispatcher("userProfile.jsp").forward(request, response);
     }
 }

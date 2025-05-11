@@ -8,10 +8,10 @@
   String phone = request.getParameter("phone");
 
   // Fallback defaults for testing directly
-  if (name == null) name = "DemoUser";
-  if (email == null) email = "demo@example.com";
-  if (password == null) password = "********";
-  if (phone == null) phone = "+1 000 000 0000";
+//  if (name == null) name = "DemoUser";
+//  if (email == null) email = "demo@example.com";
+//  if (password == null) password = "********";
+//  if (phone == null) phone = "+1 000 000 0000";
 %>
 
 <html>

@@ -1,5 +1,7 @@
 package user;
 
+import bomb.DBConnectionAdmin;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -86,7 +88,7 @@ public class UserController {
         ResultSet rs = null;
 
         try {
-            conn = DBConnection.getConnection();
+            conn = DBConnectionAdmin.getConnection();
             stmt = conn.createStatement();
             String sql = "SELECT * FROM user";
             rs = stmt.executeQuery(sql);
@@ -117,5 +119,6 @@ public class UserController {
         return userList;
   }
 
+  //DisplayUser
 
 }

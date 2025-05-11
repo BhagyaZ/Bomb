@@ -1,52 +1,66 @@
-<%@ page import="bomb.CustomerModel" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="bomb.CustomerModel" %>
+<%@ page import="java.util.List, bomb.CustomerModel" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Review Shipping Details</title>
-    <link rel="stylesheet" href="reviewshippingdetails.css?v=1">
+    <title>Shipping Details</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
-<div class="body-container">
-    <div class="page-title">
-        <h2>Review Shipping Details</h2>
-    </div>
+<h2>Shipping Records</h2>
 
-    <div class="shipping-container">
-        <%
-            List<CustomerModel> shippingList = (List<CustomerModel>) request.getAttribute("allReports");
-            if (shippingList == null || shippingList.isEmpty()) {
-        %>
-        <p><strong>No Shipping Details Available.</strong></p>
-        <%
-        } else {
-            for (CustomerModel ship : shippingList) {
-        %>
-        <ul>
-            <li>
-                <div class="shipping-item">
-                    <div class="shipping-id"><%= ship.getShippingId() %>.</div>
-                    <div class="shipping-recipient"><strong>Recipient:</strong> <%= ship.getRecipientName() %></div>
-                    <div class="shipping-address"><strong>Address:</strong> <%= ship.getRecipientAdress() %>, <%= ship.getCity() %></div>
-                    <div class="shipping-contacts">
-                        <strong>Recipient Contact:</strong> <%= ship.getRecipientContactNo() %> |
-                        <strong>Sender Contact:</strong> <%= ship.getSenderContactNo() %>
-                    </div>
-                    <div class="shipping-method"><strong>Method:</strong> <%= ship.getShippingMethod() %></div>
-                    <div class="shipping-dates">
-                        <strong>Delivery Date:</strong> <%= ship.getDeliveryDate() %> |
-                        <strong>Created Date:</strong> <%= ship.getDate() %>
-                    </div>
-                    <div class="shipping-message"><strong>Message:</strong> <%= ship.getPersonalMsg() %></div>
-                </div>
-            </li>
-        </ul>
-        <%
-                }
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Recipient</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Recipient Phone</th>
+        <th>Sender Phone</th>
+        <th>Method</th>
+        <th>Delivery Date</th>
+    </tr>
+
+    <%
+        List<CustomerModel> shippingList = (List<CustomerModel>) request.getAttribute("allShipping");
+        if (shippingList != null) {
+            for (CustomerModel item : shippingList) {
+    %>
+    <tr>
+        <td><%= item.getShippingId() %></td>
+        <td><%= item.getRecipientName() %></td>
+        <td><%= item.getRecipientAddress() %></td>
+        <td><%= item.getCity() %></td>
+        <td><%= item.getRecipientContactNo() %></td>
+        <td><%= item.getSenderContactNo() %></td>
+        <td><%= item.getShippingMethod() %></td>
+        <td><%= item.getDeliveryDate() %></td>
+    </tr>
+    <%
             }
-        %>
-    </div>
-</div>
+        }
+    %>
+</table>
 
+<div style="margin-top: 20px;">
+    <a href="shippingdetails.jsp">Back to Shipping Form</a>
+</div>
 </body>
 </html>

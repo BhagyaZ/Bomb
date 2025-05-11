@@ -15,7 +15,7 @@
 <body>
 <div class="card">
   <h2>Login</h2>
-  <form action="/Bomb_war_exploded/UserLoginServlet" method="post">
+  <form action="UserLoginServlet" method="post">
     <input type="text" name="username" placeholder="Username" required>
     <input type="password" name="password" placeholder="Password" required>
     <button type="submit">Login</button>

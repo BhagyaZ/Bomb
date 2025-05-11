@@ -31,7 +31,7 @@ public class UserRegisterServlet extends HttpServlet {
             request.setAttribute("email", email);
             request.setAttribute("phone", phone);
 
-            RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("userProfile.jsp");
             rd.forward(request, response);
 
         } else {

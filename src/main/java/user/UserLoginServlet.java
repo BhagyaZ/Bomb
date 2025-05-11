@@ -1,6 +1,5 @@
 package user;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -23,25 +22,13 @@ public class UserLoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        System.out.println(username);
-        System.out.println(password);
-
-        try {
+        try{
             List<UserModel> userLogin = UserController.loginValidate(username, password);
-
-            if (userLogin != null && !userLogin.isEmpty()) {
-                request.getSession().setAttribute("user", userLogin.get(0));
-                response.sendRedirect(request.getContextPath() + "/UserProfileServlet");
-            } else {
-                response.setContentType("text/html;charset=UTF-8");
-                response.getWriter().println("<script>alert('Login Failed'); window.location.href='login.jsp';</script>");
-            }
+            request.setAttribute("userLogin", userLogin);
         } catch (Exception e) {
-            e.printStackTrace(); // better: log to a file or framework
-            response.getWriter().println("<script>alert('Something went wrong. Please try again later.'); window.location.href='login.jsp';</script>");
+            e.printStackTrace();
         }
 
-//        RequestDispatcher dispatcher = request.getRequestDispatcher("userProfile.jsp");
-//        dispatcher.forward(request, response);
+        request.getRequestDispatcher("userProfile.jsp").forward(request, response);
     }
 }

@@ -3,7 +3,6 @@ package bomb;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class CustomerController {
@@ -62,5 +61,89 @@ public class CustomerController {
 
         return isSuccess;
         }
+    //getById
+    public static List<CustomerModel> getById (String Id) {
+
+        int convertedShippingId = Integer.parseInt(Id);
+        ArrayList<CustomerModel> customer = new ArrayList<>();
+
+        try {
+            //DBConnection
+            conn = DBConnectionCustomer.getConnection();
+            stmt = conn.createStatement();
+
+            //query
+            String sql = "SELECT * FROM shippingdetails WHERE shippingId = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, convertedShippingId);
+            rs = ps.executeQuery();
+
+
+            while (rs.next()) {
+                int shippingId = rs.getInt(1);
+                String recipientName = rs.getString(2);
+                String recipientAddress = rs.getString(3);
+                String city = rs.getString(4);
+                int recipientContactNo = rs.getInt(5);
+                int senderContactNo = rs.getInt(6);
+                String shippingMethod = rs.getString(7);
+                String deliveryDate = rs.getString(8);
+                String personalMsg = rs.getString(9);
+                //String date = LocalDateTime.parse(deliveryDate);
+
+                CustomerModel cus = new CustomerModel(shippingId, recipientName, recipientAddress, city, recipientContactNo, senderContactNo, shippingMethod, deliveryDate, personalMsg,null);
+                customer.add(cus);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return customer;
+
+    }
+
+    //GetALL
+    public static List<CustomerModel> getAll() {
+
+        ArrayList<CustomerModel> customers = new ArrayList<>();
+
+        try {
+            //DBConnection
+            conn = DBConnectionCustomer.getConnection();
+            stmt = conn.createStatement();
+
+            //query
+            String sql = "select * from shippingdetails";
+
+            rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                int shippingId = rs.getInt(1);
+                String recipientName = rs.getString(2);
+                String recipientAddress = rs.getString(3);
+                String city = rs.getString(4);
+                int recipientContactNo = rs.getInt(5);
+                int senderContactNo = rs.getInt(6);
+                String shippingMethod = rs.getString(7);
+                String deliveryDate = rs.getString(8);
+                String personalMsg = rs.getString(9);
+                //String date = LocalDateTime.parse(deliveryDate);
+
+                CustomerModel cus = new CustomerModel(shippingId, recipientName, recipientAddress, city, recipientContactNo, senderContactNo, shippingMethod, deliveryDate, personalMsg,null);
+                customers.add(cus);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return customers;
+
+    }
+
+
+
+
 
 }

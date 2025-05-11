@@ -28,7 +28,7 @@ public class CustomerInsertServlet extends HttpServlet {
 
         if (isTrue) {
             String alertMessage = "Data insert Successful";
-            response.getWriter().println("<script> alert('" + alertMessage + "');window.location.href = 'reviewshippingdetails.jsp'</script>");
+            response.getWriter().println("<script> alert('" + alertMessage + "');window.location.href = 'GetALLShippingDetailsServlet'</script>");
         } else {
             RequestDispatcher dis2 = request.getRequestDispatcher("shippingdetails.jsp");
             dis2.forward(request, response);

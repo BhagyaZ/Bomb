@@ -3,6 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="bomb.CustomerModel" %>
 <%@ page import="java.util.List, bomb.CustomerModel" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,6 +37,7 @@
         <th>Sender Phone</th>
         <th>Method</th>
         <th>Delivery Date</th>
+        <th>Personal Message</th>
     </tr>
 
     <%
@@ -52,6 +54,7 @@
         <td><%= item.getSenderContactNo() %></td>
         <td><%= item.getShippingMethod() %></td>
         <td><%= item.getDeliveryDate() %></td>
+        <td><%= item.getPersonalMsg() %></td>
     </tr>
     <%
             }

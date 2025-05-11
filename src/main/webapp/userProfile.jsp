@@ -2,9 +2,10 @@
 <%@ include file="navbar.jsp" %>
 
 <%
-  String name = request.getParameter("name");  // renamed to 'name' for clarity
+
+  String name = request.getParameter("name");
   String email = request.getParameter("email");
-  String password = request.getParameter("password"); // assuming you pass it too
+  String password = request.getParameter("password");
   String phone = request.getParameter("phone");
 
   // Fallback defaults for testing directly

@@ -115,6 +115,16 @@
         <url-pattern>/PaymentServlet</url-pattern>
     </servlet-mapping>
 
+    GetShippingByIdServlet
+    <servlet>
+        <servlet-name>GetShippingByIdServlet</servlet-name>
+        <servlet-class>bomb.GetShippingByIdServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetShippingByIdServlet</servlet-name>
+        <url-pattern>/GetShippingByIdServlet</url-pattern>
+    </servlet-mapping>
+
 
 
 

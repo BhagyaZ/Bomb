@@ -36,12 +36,9 @@
         <th>Sender Phone</th>
         <th>Method</th>
         <th>Delivery Date</th>
-<<<<<<< HEAD
         <th>Personal Message</th>
         <th>Action</th>
 
-=======
->>>>>>> d2076dfa6e1c74dc4893bc6a603fa0acdd8c1e3e
     </tr>
 
     <%
@@ -58,7 +55,6 @@
         <td><%= item.getSenderContactNo() %></td>
         <td><%= item.getShippingMethod() %></td>
         <td><%= item.getDeliveryDate() %></td>
-<<<<<<< HEAD
         <td><%= item.getPersonalMsg() %></td>
         <td> <a href="updateshippingdetails.jsp?shippingId=<%= item.getShippingId() %>
 &recipientName=<%= java.net.URLEncoder.encode(item.getRecipientName(), "UTF-8") %>
@@ -73,8 +69,6 @@
         </a>
 
         </td>
-=======
->>>>>>> d2076dfa6e1c74dc4893bc6a603fa0acdd8c1e3e
     </tr>
     <%
             }

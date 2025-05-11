@@ -22,7 +22,7 @@ public class CustomerController {
         int generatedId = -1;
 
         try {
-            conn = DBConnectionAdmin.getConnection();
+            conn = DBConnectionCustomer.getConnection();
 
             String sql = "INSERT INTO shippingdetails (recipientName, recipientAddress, city, recipientContactNo, senderContactNo, shippingMethod, deliveryDate, personalMsg, date) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -65,28 +65,78 @@ public class CustomerController {
 
     //display data functions
 
-        return isSuccess;
-        }
+        //return isSuccess;
+
+
+
+//    //getById
+//    public static List<CustomerModel> getById (String Id){
+//
+//        int convertedId = Integer.parseInt(Id);
+//
+//        ArrayList <CustomerModel> bomb = new ArrayList<>();
+//
+//        try {
+//            //DBconnection
+//            Connection con=DBConnectionAdmin.getConnection();
+//            stmt=con.createStatement();
+//
+//            //Query
+//            String sql ="select * from shippingdetails where id '"+convertedId+"'";
+//
+//            rs = stmt.executeQuery(sql);
+//
+//            while(rs.next()) {
+//                int shippingId = rs.getInt(1);
+//                String recipientName = rs.getString(2);
+//                String recipientAddress = rs.getString(3);
+//                String city = rs.getString(4);
+//                int recipientContactNo = rs.getInt(5);
+//                int senderContactNo = rs.getInt(6);
+//                String shippingMethod = rs.getString(7);
+//                String deliveryDate = rs.getString(8);
+//                String personalMsg = rs.getString(9);
+//                String date = rs.getString(10);
+//
+//                CustomerModel bk = new CustomerModel(shippingId,recipientName,recipientAddress,city,recipientContactNo,senderContactNo,shippingMethod,deliveryDate,personalMsg, date);
+//                bomb.add(bk);
+//
+//            }
+//
+//        }
+//        catch(Exception e) {
+//            e.printStackTrace();
+//        }
+//        return bomb;
+//    }
+//
+//    //GetAll data
+//    public static List<CustomerModel> getAllShippingDetails() {
+//        List<CustomerModel> shippingList = new ArrayList<>();
+//        Connection conn = null;
+//        Statement stmt = null;
+//        ResultSet rs = null;
 
 
     //getById
-    public static List<CustomerModel> getById (String Id){
+    public static List<CustomerModel> getById (String Id) {
 
-        int convertedId = Integer.parseInt(Id);
-
-        ArrayList <CustomerModel> bomb = new ArrayList<>();
+        int convertedShippingId = Integer.parseInt(Id);
+        ArrayList<CustomerModel> customer = new ArrayList<>();
 
         try {
-            //DBconnection
-            Connection con=DBConnectionAdmin.getConnection();
-            stmt=con.createStatement();
+            //DBConnection
+            conn = DBConnectionCustomer.getConnection();
+            stmt = conn.createStatement();
 
-            //Query
-            String sql ="select * from shippingdetails where id '"+convertedId+"'";
+            //query
+            String sql = "SELECT * FROM shippingdetails WHERE shippingId = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, convertedShippingId);
+            rs = ps.executeQuery();
 
-            rs = stmt.executeQuery(sql);
 
-            while(rs.next()) {
+            while (rs.next()) {
                 int shippingId = rs.getInt(1);
                 String recipientName = rs.getString(2);
                 String recipientAddress = rs.getString(3);
@@ -96,29 +146,60 @@ public class CustomerController {
                 String shippingMethod = rs.getString(7);
                 String deliveryDate = rs.getString(8);
                 String personalMsg = rs.getString(9);
-                String date = rs.getString(10);
+                //String date = LocalDateTime.parse(deliveryDate);
 
-                CustomerModel bk = new CustomerModel(shippingId,recipientName,recipientAddress,city,recipientContactNo,senderContactNo,shippingMethod,deliveryDate,personalMsg, date);
-                bomb.add(bk);
-
+                CustomerModel cus = new CustomerModel(shippingId, recipientName, recipientAddress, city, recipientContactNo, senderContactNo, shippingMethod, deliveryDate, personalMsg,null);
+                customer.add(cus);
             }
 
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return bomb;
+
+        return customer;
+
     }
 
-    //GetAll data
-    public static List<CustomerModel> getAllShippingDetails() {
-        List<CustomerModel> shippingList = new ArrayList<>();
-        Connection conn = null;
-        Statement stmt = null;
-        ResultSet rs = null;
+    //GetALL
+    public static List<CustomerModel> getAll() {
+
+        ArrayList<CustomerModel> customers = new ArrayList<>();
+
+        try {
+            //DBConnection
+            conn = DBConnectionCustomer.getConnection();
+            stmt = conn.createStatement();
+
+            //query
+            String sql = "select * from shippingdetails";
+
+            rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                int shippingId = rs.getInt(1);
+                String recipientName = rs.getString(2);
+                String recipientAddress = rs.getString(3);
+                String city = rs.getString(4);
+                int recipientContactNo = rs.getInt(5);
+                int senderContactNo = rs.getInt(6);
+                String shippingMethod = rs.getString(7);
+                String deliveryDate = rs.getString(8);
+                String personalMsg = rs.getString(9);
+                //String date = LocalDateTime.parse(deliveryDate);
+
+                CustomerModel cus = new CustomerModel(shippingId, recipientName, recipientAddress, city, recipientContactNo, senderContactNo, shippingMethod, deliveryDate, personalMsg, null);
+                customers.add(cus);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return customers;
+    }
 
 
-    //Update Data
+        //Update Data
     public static boolean updatedata(int shippingId,String recipientName,String recipientAddress, String city, int recipientContactNo, int senderContactNo, String shippingMethod, String deliveryDate, String personalMsg, String date) {
 
         try{

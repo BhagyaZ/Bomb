@@ -95,6 +95,15 @@
         <url-pattern>/UserLoginServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>UserProfileServlet</servlet-name>
+        <servlet-class>user.UserProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserProfileServlet</servlet-name>
+        <url-pattern>/UserProfileServlet</url-pattern>
+    </servlet-mapping>
+
 
 
 </web-app>

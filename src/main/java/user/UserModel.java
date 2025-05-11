@@ -6,6 +6,8 @@ public class UserModel {
     private String email;
     private String password;
     private String phone;
+    private String baddress;
+    private String city;
 
     public UserModel(int id, String name, String email, String password,String phone) {
         this.id = id;

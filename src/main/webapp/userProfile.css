@@ -1,52 +1,64 @@
-
-
+/* Main background */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    background-color: #f4f9fd;
-    color: #333;
+    font-family: Arial, sans-serif;
+    background-color: #d4f0fc;
+    color: #02577a;
 }
 
+/* Profile container */
 .profile-container {
     max-width: 800px;
     margin: 50px auto;
-    padding: 30px;
-    background: linear-gradient(to right, #f0fdf4, #e0f7fa);
-    border-radius: 18px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.profile-container h2 {
-    font-size: 30px;
-    color: #00796b;
-    margin-bottom: 20px;
-}
-
-.profile-card {
-    display: flex;
-    align-items: center;
-    gap: 30px;
     padding: 20px;
-    background-color: white;
-    border-radius: 14px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    justify-content: center;
 }
 
-.profile-image img {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #00796b;
+/* Card styling */
+.profile-card {
+    background-color: #89d6fb;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(1, 48, 63, 0.2);
+    padding: 30px;
+    transition: 0.3s ease;
 }
 
-.profile-details {
-    text-align: left;
-}
-
+/* Profile details */
 .profile-details p {
     font-size: 18px;
-    margin: 8px 0;
+    margin: 10px 0;
+    color: #02577a;
+}
+
+.profile-details strong {
+    font-weight: 600;
+    color: #01303f;
+}
+
+/* Header & Footer override if needed */
+header, footer {
+    background-color: #01303f;
+    color: white;
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    color: #01303f;
+    margin-bottom: 25px;
+}
+
+/* Optional: Buttons if added later */
+.button {
+    background-color: #02a9f7;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.button:hover {
+    background-color: #028fd4;
 }

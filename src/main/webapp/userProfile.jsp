@@ -2,36 +2,32 @@
 <%@ include file="navbar.jsp" %>
 
 <%
-  String name = request.getParameter("name");  // renamed to 'name' for clarity
-  String email = request.getParameter("email");
-  String password = request.getParameter("password"); // assuming you pass it too
-  String phone = request.getParameter("phone");
-
-  // Fallback defaults for testing directly
-//  if (name == null) name = "DemoUser";
-//  if (email == null) email = "demo@example.com";
-//  if (password == null) password = "********";
-//  if (phone == null) phone = "+1 000 000 0000";
+  user.UserModel user = (user.UserModel) session.getAttribute("user");
+  if (user == null) {
+    // User is not logged in, redirect to login page
+    response.sendRedirect("login.jsp");
+    return;
+  }
 %>
 
 <html>
 <head>
   <title>User Profile</title>
-  <link rel="stylesheet" href="userProfile.css">
+  <link rel="stylesheet" href="userProfile.css?v=1">
 </head>
 <body>
 <main class="profile-container">
   <h2>User Profile</h2>
   <div class="profile-card">
-
     <div class="profile-details">
-      <p><strong>Name:</strong> <%= name %></p>
-      <p><strong>Email:</strong> <%= email %></p>
-      <p><strong>Password:</strong> <%= password %></p>
-      <p><strong>Phone:</strong> <%= phone %></p>
+      <p><strong>ID:</strong> <%= user.getId() %></p>
+      <p><strong>Name:</strong> <%= user.getName() %></p>
+      <p><strong>Email:</strong> <%= user.getEmail() %></p>
+      <p><strong>Phone:</strong> <%= user.getPhone() != null ? user.getPhone() : "Not provided" %></p>
     </div>
   </div>
 </main>
+
 <%@ include file="footer.jsp" %>
 </body>
 </html>

@@ -15,19 +15,18 @@ public class CustomerController {
     private static PreparedStatement ps=null;
 
     // Insert data function
-    public static boolean insertdata(String recipientName, String recipientAddress, String city, int recipientContactNo,
-                                     int senderContactNo, String shippingMethod, String deliveryDate,
-                                     String personalMsg) {
-        isSuccess = false;
-        conn = null;
-        PreparedStatement ps = null;
+    public static int insertdata(String recipientName, String recipientAddress, String city, int recipientContactNo,
+                                 int senderContactNo, String shippingMethod, String deliveryDate,
+                                 String personalMsg) {
+
+        int generatedId = -1;
 
         try {
             conn = DBConnectionAdmin.getConnection();
 
             String sql = "INSERT INTO shippingdetails (recipientName, recipientAddress, city, recipientContactNo, senderContactNo, shippingMethod, deliveryDate, personalMsg, date) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             ps.setString(1, recipientName);
             ps.setString(2, recipientAddress);
@@ -35,20 +34,19 @@ public class CustomerController {
             ps.setInt(4, recipientContactNo);
             ps.setInt(5, senderContactNo);
             ps.setString(6, shippingMethod);
-            ps.setDate(7, java.sql.Date.valueOf(deliveryDate)); // expects yyyy-MM-dd
+            ps.setDate(7, java.sql.Date.valueOf(deliveryDate));
             ps.setString(8, personalMsg);
-
-            // Set current system date-time for the 'date' column
-            LocalDateTime now = LocalDateTime.now();
-            ps.setTimestamp(9, java.sql.Timestamp.valueOf(now));
+            ps.setTimestamp(9, java.sql.Timestamp.valueOf(LocalDateTime.now()));
 
             int rowsInserted = ps.executeUpdate();
+
             if (rowsInserted > 0) {
-                isSuccess = true;
+                ResultSet generatedKeys = ps.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    generatedId = generatedKeys.getInt(1); // this is the new shippingId
+                }
             }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -60,8 +58,16 @@ public class CustomerController {
             }
         }
 
+
+        return generatedId; // will be -1 if insertion failed
+    }
+
+
+    //display data functions
+
         return isSuccess;
         }
+
 
     //getById
     public static List<CustomerModel> getById (String Id){
@@ -111,45 +117,104 @@ public class CustomerController {
         Statement stmt = null;
         ResultSet rs = null;
 
-        try {
-            conn = DBConnectionAdmin.getConnection();
-            stmt = conn.createStatement();
-            String sql = "SELECT * FROM shippingdetails ORDER BY shippingId DESC";
-            rs = stmt.executeQuery(sql);
 
-            while(rs.next()) {
-                CustomerModel shipping = new CustomerModel(
-                        rs.getInt("shippingId"),
-                        rs.getString("recipientName"),
-                        rs.getString("recipientAddress"),
-                        rs.getString("city"),
-                        rs.getInt("recipientContactNo"),
-                        rs.getInt("senderContactNo"),
-                        rs.getString("shippingMethod"),
-                        rs.getString("deliveryDate"),
-                        rs.getString("personalMsg"),
-                        rs.getString("date")
-                );
+    //Update Data
+    public static boolean updatedata(int shippingId,String recipientName,String recipientAddress, String city, int recipientContactNo, int senderContactNo, String shippingMethod, String deliveryDate, String personalMsg, String date) {
 
-                //Testing
-                System.out.println(rs.getString("shippingId"));
-                System.out.println(rs.getString("recipientName"));
-                System.out.println(rs.getString("recipientAddress"));
+        try{
+            conn = DBConnectionCustomer.getConnection();//DB connection
+            stmt= conn.createStatement();
 
-                shippingList.add(shipping);
+            //sql query
+            String sql = "update shippingdetails set recipientName='"+recipientName+"', recipientAddress='"+recipientAddress+"' , city='"+city+"' , recipientContactNo='"+recipientContactNo+"' , senderContactNo='"+senderContactNo+"' , shippingMethod='"+shippingMethod+"' , deliveryDate='"+deliveryDate+"' , personalMsg='"+personalMsg+"'"
+                    + " where shippingId='"+shippingId+"' ";
+
+            int rs = stmt.executeUpdate(sql);
+            if (rs > 0) {
+                isSuccess = true;
             }
+            else{
+                isSuccess = false;
+            }
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return isSuccess;
+    }
+
+
+    // Add payment handling functionality
+    public static boolean paymentValidation(String account_number, String card_type, String expirydate, String cvv, String pin, String security_pin) {
+        boolean isValid = false;
+
+        try {
+            conn = DBConnectionCustomer.getConnection();
+            String sql = "SELECT * FROM payments WHERE account_number = ? AND card_type = ? AND expirydate = ? AND cvv = ? AND pin = ? AND security_pin = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, account_number);
+            ps.setString(2, card_type);
+            ps.setString(3, expirydate);
+            ps.setString(4, cvv);
+            ps.setString(5, pin);
+            ps.setString(6, security_pin);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                isValid = true;
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) rs.close();
-                if (stmt != null) stmt.close();
-                if (conn != null) conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
-        return shippingList;
+        return isValid;
     }
+
+
+
+
+
+//        try {
+//            conn = DBConnectionAdmin.getConnection();
+//            stmt = conn.createStatement();
+//            String sql = "SELECT * FROM shippingdetails ORDER BY shippingId DESC";
+//            rs = stmt.executeQuery(sql);
+//>>>>>>> d2076dfa6e1c74dc4893bc6a603fa0acdd8c1e3e
+//
+//            while(rs.next()) {
+//                CustomerModel shipping = new CustomerModel(
+//                        rs.getInt("shippingId"),
+//                        rs.getString("recipientName"),
+//                        rs.getString("recipientAddress"),
+//                        rs.getString("city"),
+//                        rs.getInt("recipientContactNo"),
+//                        rs.getInt("senderContactNo"),
+//                        rs.getString("shippingMethod"),
+//                        rs.getString("deliveryDate"),
+//                        rs.getString("personalMsg"),
+//                        rs.getString("date")
+//                );
+//
+//                //Testing
+//                System.out.println(rs.getString("shippingId"));
+//                System.out.println(rs.getString("recipientName"));
+//                System.out.println(rs.getString("recipientAddress"));
+//
+//                shippingList.add(shipping);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            try {
+//                if (rs != null) rs.close();
+//                if (stmt != null) stmt.close();
+//                if (conn != null) conn.close();
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        return shippingList;
+//    }
 
 }

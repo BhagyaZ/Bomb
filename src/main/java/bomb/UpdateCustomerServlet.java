@@ -8,13 +8,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet("/CustomerInsertServlet")
-public class CustomerInsertServlet extends HttpServlet {
+@WebServlet("/UpdateCustomerServlet")
+public class UpdateCustomerServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int shippingId = Integer.parseInt(request.getParameter("shippingId"));
         String recipientName = request.getParameter("recipientName");
         String recipientAddress = request.getParameter("recipientAddress");
         String city = request.getParameter("city");
@@ -23,22 +25,22 @@ public class CustomerInsertServlet extends HttpServlet {
         String shippingMethod = request.getParameter("shippingMethod");
         String deliveryDate = request.getParameter("deliveryDate");
         String personalMsg = request.getParameter("personalMsg");
+        String date = request.getParameter("date");
 
-        boolean isTrue = CustomerController.insertdata(recipientName, recipientAddress, city, recipientContactNo, senderContactNo, shippingMethod, deliveryDate, personalMsg);
-        int shippingId = CustomerController.insertdata(recipientName, recipientAddress, city, recipientContactNo, senderContactNo, shippingMethod, deliveryDate, personalMsg);
+        boolean isTrue;
+        isTrue = CustomerController.updatedata(shippingId,recipientName,recipientAddress,city,recipientContactNo,senderContactNo,shippingMethod,deliveryDate,personalMsg,date);
 
+        if(isTrue){
+            List<CustomerModel> customer = CustomerController.getById(String.valueOf(shippingId));
 
-        if (shippingId != -1) {
-            // redirect to servlet with shippingId
-            response.sendRedirect("GetShippingByIdServlet?id=" + shippingId);
+//            request.setAttribute("customer",customer);
+            request.setAttribute("allShipping", customer);
 
-//        if (isTrue) {
-//            String alertMessage = "Data insert Successful";
-//            response.getWriter().println("<script> alert('" + alertMessage + "');window.location.href = 'reviewshippingdetails.jsp'</script>");
-//>>>>>>> d2076dfa6e1c74dc4893bc6a603fa0acdd8c1e3e
-        } else {
-            request.setAttribute("error", "Insertion failed.");
-            RequestDispatcher dis2 = request.getRequestDispatcher("shippingdetails.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("reviewshippingdetails.jsp");
+            dispatcher.forward(request, response);
+        }
+        else{
+            RequestDispatcher dis2 = request.getRequestDispatcher("Wrong.jsp");
             dis2.forward(request, response);
         }
     }

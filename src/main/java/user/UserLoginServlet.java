@@ -24,11 +24,27 @@ public class UserLoginServlet extends HttpServlet {
 
         try{
             List<UserModel> userLogin = UserController.loginValidate(username, password);
-            request.setAttribute("userLogin", userLogin);
+
+            if (!userLogin.isEmpty()) {
+                UserModel user = userLogin.get(0);
+                String role = user.getRole();
+
+                if (role.equals("admin")) {
+                    request.getSession().setAttribute("user", user);
+                    response.sendRedirect("admindashboard.jsp");
+                } else if (role.equals("product_manager")) {
+                    request.getSession().setAttribute("user", user);
+                    response.sendRedirect("pmdashboard.jsp");
+                } else {
+                    request.getSession().setAttribute("user", user);
+                    response.sendRedirect("home.jsp");
+                }
+
+            } else {
+                response.sendRedirect("login.jsp");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        request.getRequestDispatcher("userProfile.jsp").forward(request, response);
     }
 }

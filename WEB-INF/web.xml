@@ -95,7 +95,17 @@
         <url-pattern>/UserLoginServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>UserProfileServlet</servlet-name>
+        <servlet-class>user.UserProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserProfileServlet</servlet-name>
+        <url-pattern>/UserProfileServlet</url-pattern>
+    </servlet-mapping>
 
+
+    <!--Customer -->
     <servlet>
         <servlet-name>UpdateCustomerServlet</servlet-name>
         <servlet-class>bomb.UpdateCustomerServlet</servlet-class>
@@ -115,7 +125,6 @@
         <url-pattern>/PaymentServlet</url-pattern>
     </servlet-mapping>
 
-    GetShippingByIdServlet
     <servlet>
         <servlet-name>GetShippingByIdServlet</servlet-name>
         <servlet-class>bomb.GetShippingByIdServlet</servlet-class>

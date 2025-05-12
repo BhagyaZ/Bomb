@@ -50,27 +50,28 @@ public class UserController {
         return isSuccess;
     }
 
+    //login validation
     public static List<UserModel> loginValidate(String username, String password) {
         List<UserModel> users = new ArrayList<>();
 
-        String sql = "SELECT * FROM user WHERE "+" username='"+username+"' AND password= '"+password+"' ";
 
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try {
 
-            pstmt.setString(1, username);
-            pstmt.setString(2, password);
+            Connection conn = DBConnectionAdmin.getConnection();
+            stmt = conn.createStatement();
 
-            ResultSet rs = pstmt.executeQuery();
+            String sql = "SELECT * FROM user WHERE "+" name='"+username+"' AND password= '"+password+"' ";
+            rs = stmt.executeQuery(sql);
 
-            while (rs.next()) {
+            if (rs.next()) {
                 int id = rs.getInt(1);
                 String name = rs.getString(2);
                 String email = rs.getString(3);
                 String pass = rs.getString(4);
                 String phone = rs.getString(5);
+                String role = rs.getString(6);
 
-                UserModel u = new UserModel(id, name, email, pass, phone);
+                UserModel u = new UserModel(id, name, email, pass, phone, role);
                 users.add(u);
             }
 
@@ -81,44 +82,43 @@ public class UserController {
         return users;
     }
 
-    public static List<UserModel> getAll() {
-        List<UserModel> userList = new ArrayList<>();
-        Connection conn = null;
-        Statement stmt = null;
-        ResultSet rs = null;
+    public static List<UserModel> userProfile(String Id) {
+
+        int convertID = Integer.parseInt(Id);
+        ArrayList<UserModel> userList = new ArrayList<>();
 
         try {
             conn = DBConnectionAdmin.getConnection();
             stmt = conn.createStatement();
-            String sql = "SELECT * FROM user";
+            String sql = "SELECT * FROM user where id = '"+convertID+"' ";
             rs = stmt.executeQuery(sql);
 
-            while (rs.next()) {
+            if (rs.next()) {
                 int id = rs.getInt(1);
                 String name = rs.getString(2);
                 String email = rs.getString(3);
                 String password = rs.getString(4);
                 String phone = rs.getString(5);
+                String role = rs.getString(6);
 
-                UserModel user = new UserModel(id,name, email, password, phone);
+                System.out.println(name);
+                System.out.println(email);
+                System.out.println(password);
+                System.out.println(phone);
+                System.out.println(role);
+
+                UserModel user = new UserModel(id,name, email, password, phone, role);
                 userList.add(user);
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) rs.close();
-                if (stmt != null) stmt.close();
-                if (conn != null) conn.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
 
         return userList;
   }
 
   //DisplayUser
+
 
 }

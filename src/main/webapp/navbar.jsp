@@ -53,7 +53,7 @@
                     />
                 </div>
 
-                <div class="navbar-profile">
+                <div class="navbar-profile" onclick="window.location.href='userProfile.jsp';" style="cursor: pointer;">
                     <i class="fa fa-user"></i>
                 </div>
 

@@ -1,9 +1,9 @@
-<<<<<<< HEAD
 body {
     background-color: #d4f0fc;
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
+    color: #333;
 }
 
 .profile-container {
@@ -25,7 +25,7 @@ body {
 .profile-avatar {
     width: 120px;
     height: 120px;
-    background-color: #01303f; /* dark teal blue */
+    background-color: #01303f;
     color: #ffffff;
     font-size: 36px;
     font-weight: bold;
@@ -70,59 +70,6 @@ body {
 
 .update-btn:hover {
     background-color: #028fd4;
-=======
-
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    background-color: #f4f9fd;
-    color: #333;
-}
-
-.profile-container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 30px;
-    background: linear-gradient(to right, #f0fdf4, #e0f7fa);
-    border-radius: 18px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.profile-container h2 {
-    font-size: 30px;
-    color: #00796b;
-    margin-bottom: 20px;
-}
-
-.profile-card {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 14px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    justify-content: center;
-}
-
-.profile-image img {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #00796b;
-}
-
-.profile-details {
-    text-align: left;
-}
-
-.profile-details p {
-    font-size: 18px;
-    margin: 8px 0;
->>>>>>> 1db4f7c74d59c7f19e4a953e7abd6c8b43843c10
 }
 
 .delete-btn {

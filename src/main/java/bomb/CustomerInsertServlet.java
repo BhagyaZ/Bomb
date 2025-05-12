@@ -24,7 +24,7 @@ public class CustomerInsertServlet extends HttpServlet {
         String deliveryDate = request.getParameter("deliveryDate");
         String personalMsg = request.getParameter("personalMsg");
 
-        boolean isTrue = CustomerController.insertdata(recipientName, recipientAddress, city, recipientContactNo, senderContactNo, shippingMethod, deliveryDate, personalMsg);
+//        boolean isTrue = CustomerController.insertdata(recipientName, recipientAddress, city, recipientContactNo, senderContactNo, shippingMethod, deliveryDate, personalMsg);
         int shippingId = CustomerController.insertdata(recipientName, recipientAddress, city, recipientContactNo, senderContactNo, shippingMethod, deliveryDate, personalMsg);
 
 

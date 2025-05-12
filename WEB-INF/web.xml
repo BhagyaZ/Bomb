@@ -104,6 +104,23 @@
         <url-pattern>/UserProfileServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>updateProfileServlet</servlet-name>
+        <servlet-class>user.updateProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updateProfileServlet</servlet-name>
+        <url-pattern>/updateProfileServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteProfileServlet</servlet-name>
+        <servlet-class>user.DeleteProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteProfileServlet</servlet-name>
+        <url-pattern>/DeleteProfileServlet</url-pattern>
+    </servlet-mapping>
 
     <!--Customer -->
     <servlet>

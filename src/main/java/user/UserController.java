@@ -1,6 +1,8 @@
 package user;
 
+import bomb.CustomerModel;
 import bomb.DBConnectionAdmin;
+import bomb.ReportModel;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -118,7 +120,76 @@ public class UserController {
         return userList;
   }
 
-  //DisplayUser
+    //GetByID
+    public static List<UserModel> getById(String Id) {
 
+        int convertedId = Integer.parseInt(Id);
+        ArrayList<UserModel> userModel = new ArrayList<>();
+
+        String sql = "SELECT * FROM user WHERE id = ?";
+
+        try (Connection conn = DBConnectionAdmin.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, convertedId);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String name = rs.getString(2);
+                String email = rs.getString(3);
+                String password = rs.getString(4);
+                String phone = rs.getString(5);
+                String role = rs.getString(6);
+
+                UserModel rp = new UserModel(id, name, email, password, phone, role);
+                userModel.add(rp);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return userModel;
+    }
+
+  //Update User
+  public static boolean updateProfile(int id, String name, String email, String phone) {
+      Connection conn = null;
+      PreparedStatement stmt = null;
+      try {
+          conn = DBConnection.getConnection();
+          String sql = "UPDATE User SET name=?, email=?, phone=? WHERE id=?";
+          stmt = conn.prepareStatement(sql);
+          stmt.setString(1, name);
+          stmt.setString(2, email);
+          stmt.setString(3, phone);
+          stmt.setInt(4, id);
+          int rowsUpdated = stmt.executeUpdate();
+          return rowsUpdated > 0;
+      } catch (Exception e) {
+          e.printStackTrace();
+          return false;
+      }
+  }
+
+    //Delete Data
+    public static  boolean deleteProfile(String id) {
+        int convertedId = Integer.parseInt(id);
+        try{
+            conn = DBConnectionAdmin.getConnection();
+            stmt=conn.createStatement();
+
+            String sql = "delete from user where id = '"+convertedId+"'";
+
+            int rs = stmt.executeUpdate(sql);
+            if(rs > 0){
+                isSuccess = true;
+            } else {
+                isSuccess = false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return isSuccess;
+    }
 
 }

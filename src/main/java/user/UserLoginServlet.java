@@ -37,7 +37,7 @@ public class UserLoginServlet extends HttpServlet {
                     response.sendRedirect("pmdashboard.jsp");
                 } else {
                     request.getSession().setAttribute("user", user);
-                    response.sendRedirect("home.jsp");
+                    response.sendRedirect("Home.jsp");
                 }
 
             } else {

@@ -12,7 +12,7 @@
 <html>
 <head>
   <title>User Profile</title>
-  <link rel="stylesheet" href="userProfile.css?v=3">
+  <link rel="stylesheet" href="userProfile.css?v=4">
 </head>
 <body>
 <main class="profile-container">
@@ -29,8 +29,11 @@
     </div>
 
     <div class="profile-actions">
-      <a href="updateProfile.jsp" class="btn update-btn">Update Profile</a>
-      <a href="deleteProfileServlet?id=<%= user.getId() %>" class="btn delete-btn" onclick="return confirm('Are you sure you want to delete your profile?');">Delete Profile</a>
+      <a href="updateProfile.jsp?userID=<%= user.getId() %>" class="btn update-btn">Update</a>
+      <form action="<%= request.getContextPath() %>/DeleteProfileServlet" method="post" onsubmit="return confirm('Are you sure you want to delete this report?');">
+        <input type="hidden" name="userID" value="<%= user.getId() %>">
+        <button type="submit" class="delete-btn">Delete</button>
+      </form>
     </div>
   </div>
 </main>

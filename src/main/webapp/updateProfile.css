@@ -1,0 +1,84 @@
+/* Body Styling */
+body {
+    background-color: #d4f0fc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #02577a;
+    margin: 0;
+    padding: 0;
+}
+
+/* Form Container */
+.form-container {
+    background-color: #ffffff;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.form-header h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0277bd;
+}
+
+/* Form Layout */
+.form-body {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Labels */
+.form-body label {
+    font-weight: bold;
+    text-align: right;
+}
+
+/* Input Fields */
+.form-body input[type="text"],
+.form-body input[type="email"],
+.form-body input[type="tel"],
+.form-body input[type="password"],
+.form-body input[type="number"],
+.form-body input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Input Focus Effect */
+.form-body input:focus {
+    border-color: #0277bd;
+    outline: none;
+    box-shadow: 0 0 5px rgba(2, 119, 189, 0.5);
+}
+
+/* Submit Button Container */
+.submit-container {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Button Styling */
+button {
+    background-color: #0277bd;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: #039be5;
+}

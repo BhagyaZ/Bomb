@@ -25,7 +25,7 @@
       <p><strong>Email:</strong> <%= user.getEmail() %></p>
       <p><strong>Phone:</strong> <%= user.getPhone() != null ? user.getPhone() : "Not provided" %></p>
       <p><strong>Role:</strong> <%= user.getRole() %></p>
-      <a href="addCardDetails.jsp" class="btn card-btn">Add Card Details</a>
+      <a href="carddetails.jsp" class="btn card-btn">Add Card Details</a>
     </div>
 
     <div class="profile-actions">

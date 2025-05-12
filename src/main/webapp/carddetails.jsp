@@ -6,62 +6,82 @@
   <meta charset="UTF-8">
   <title>Card Details Form</title>
   <style>
+    /* Overall Page Background */
     body {
-      background: #f4f7f8;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #d4f0fc;
+      font-family: Arial, sans-serif;
+      color: #02577a;
+      margin: 0;
+      padding: 0;
+
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
+      min-height: 100vh;
     }
 
-    form {
-      background-color: white;
-      padding: 30px 40px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      width: 400px;
+    /* Form Container */
+    form#cardForm {
+      background-color: #89d6fb;
+      width: 100%;
+      max-width: 500px;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
-    table {
+    /* Form Header */
+    form#cardForm h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #01303f;
+    }
+
+    /* Table Layout for Inputs */
+    form#cardForm table {
       width: 100%;
     }
 
-    td {
+    form#cardForm td {
       padding: 10px 0;
     }
 
-    input[type="text"], input[type="number"], select {
+    /* Input Styles */
+    form#cardForm input[type="text"],
+    form#cardForm input[type="number"],
+    form#cardForm select {
       width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+      padding: 8px;
+      border: 1px solid #02577a;
+      border-radius: 6px;
       font-size: 14px;
     }
 
-    input[type="submit"] {
+    /* Submit Button */
+    form#cardForm input[type="submit"] {
       width: 100%;
-      background-color: #007bff;
+      padding: 10px;
+      background-color: #02a9f7;
       color: white;
       border: none;
-      padding: 12px;
-      border-radius: 5px;
+      border-radius: 8px;
       font-size: 16px;
       cursor: pointer;
-      margin-top: 15px;
+      transition: background-color 0.3s ease;
     }
 
-    input[type="submit"]:hover {
-      background-color: #0056b3;
+    form#cardForm input[type="submit"]:hover {
+      background-color: #0287c2;
     }
 
-    h2 {
-      text-align: center;
-      color: #333;
-      margin-bottom: 20px;
+    /* Optional: Responsive */
+    @media (max-width: 600px) {
+      form#cardForm {
+        padding: 20px;
+        margin: 20px;
+      }
     }
+
   </style>
 </head>
 <body>

@@ -171,6 +171,41 @@
         <url-pattern>/DeleteShippingServlet</url-pattern>
     </servlet-mapping>
 
+    <!--Card Details-->
+    <servlet>
+        <servlet-name>InsertCardDetailsServlet</servlet-name>
+        <servlet-class>bomb.InsertCardDetailsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsertCardDetailsServlet</servlet-name>
+        <url-pattern>/InsertCardDetailsServlet</url-pattern>
+    </servlet-mapping>
 
+    <servlet>
+        <servlet-name>CardDetailsGetAll</servlet-name>
+        <servlet-class>bomb.CardDetailsGetAll</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CardDetailsGetAll</servlet-name>
+        <url-pattern>/CardDetailsGetAll</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateCardDetailsServlet</servlet-name>
+        <servlet-class>bomb.UpdateCardDetailsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateCardDetailsServlet</servlet-name>
+        <url-pattern>/UpdateCardDetailsServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteCardDetailsServlet</servlet-name>
+        <servlet-class>bomb.DeleteCardDetailsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteCardDetailsServlet</servlet-name>
+        <url-pattern>/DeleteCardDetailsServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>

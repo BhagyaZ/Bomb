@@ -24,7 +24,6 @@ public class CustomerInsertServlet extends HttpServlet {
         String deliveryDate = request.getParameter("deliveryDate");
         String personalMsg = request.getParameter("personalMsg");
 
-//        boolean isTrue = CustomerController.insertdata(recipientName, recipientAddress, city, recipientContactNo, senderContactNo, shippingMethod, deliveryDate, personalMsg);
         int shippingId = CustomerController.insertdata(recipientName, recipientAddress, city, recipientContactNo, senderContactNo, shippingMethod, deliveryDate, personalMsg);
 
 
@@ -32,10 +31,6 @@ public class CustomerInsertServlet extends HttpServlet {
             // redirect to servlet with shippingId
             response.sendRedirect("GetShippingByIdServlet?id=" + shippingId);
 
-//        if (isTrue) {
-//            String alertMessage = "Data insert Successful";
-//            response.getWriter().println("<script> alert('" + alertMessage + "');window.location.href = 'reviewshippingdetails.jsp'</script>");
-//>>>>>>> d2076dfa6e1c74dc4893bc6a603fa0acdd8c1e3e
         } else {
             request.setAttribute("error", "Insertion failed.");
             RequestDispatcher dis2 = request.getRequestDispatcher("shippingdetails.jsp");

@@ -13,6 +13,8 @@ public class CustomerModel {
     private String personalMsg;
     private String date;
 
+    private PaymentModel paymentDetails;//updated
+
     public CustomerModel(int shippingId, String recipientName, String recipientAddress, String city, int recipientContactNo,
                      int senderContactNo, String shippingMethod, String deliveryDate, String personalMsg, String date) {
         this.shippingId = shippingId;
@@ -25,6 +27,15 @@ public class CustomerModel {
         this.deliveryDate = deliveryDate;
         this.personalMsg = personalMsg;
         this.date = date;
+    }
+
+    // ✅ Add getter and setter for PaymentModel
+    public PaymentModel getPaymentDetails() {
+        return paymentDetails;
+    }
+
+    public void setPaymentDetails(PaymentModel paymentDetails) {
+        this.paymentDetails = paymentDetails;
     }
 
     public int getShippingId() {

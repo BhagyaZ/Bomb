@@ -199,7 +199,7 @@ public class CustomerController {
     }
 
 
-        //Update Data
+    //Update Data
     public static boolean updatedata(int shippingId,String recipientName,String recipientAddress, String city, int recipientContactNo, int senderContactNo, String shippingMethod, String deliveryDate, String personalMsg, String date) {
 
         try{
@@ -251,6 +251,91 @@ public class CustomerController {
         }
         return isValid;
     }
+
+    //dispplay all the details in the orderreview page
+    public List<CustomerModel> getAllCustomerOrders() {
+        List<CustomerModel> customerList = new ArrayList<>();
+
+        try {
+            Connection conn = DBConnectionCustomer.getConnection();
+            String sql = "SELECT * FROM shippingdetails";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                // Create CustomerModel using only shipping details
+                CustomerModel customer = new CustomerModel(
+                        rs.getInt("shippingId"),
+                        rs.getString("recipientName"),
+                        rs.getString("recipientAddress"),
+                        rs.getString("city"),
+                        rs.getInt("recipientContactNo"),
+                        rs.getInt("senderContactNo"),
+                        rs.getString("shippingMethod"),
+                        rs.getString("deliveryDate"),
+                        rs.getString("personalMsg"),
+                        rs.getString("date")
+                );
+
+                customerList.add(customer);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return customerList;
+    }
+
+
+//    //delete data
+//    public static boolean deletedata(String shippingId){
+//        int convShippingId = Integer.parseInt(shippingId);
+//
+//        try{
+//            conn = DBConnectionCustomer.getConnection();
+//            stmt=conn.createStatement();
+//            String sql = "DELETE FROM shippingdetails WHERE shippingId ='"+convShippingId+"'";
+//
+//            int rs=stmt.executeUpdate(sql);
+//
+//            if(rs>0){
+//                isSuccess = true;
+//            }
+//            else{
+//                isSuccess = false;
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return isSuccess;
+//    }
+
+
+    public static boolean deletedata(String shippingId){
+        boolean isSuccess = false;
+        try {
+            int convShippingId = Integer.parseInt(shippingId);
+            System.out.println("Deleting ID: " + convShippingId); // Debug
+
+            conn = DBConnectionCustomer.getConnection();
+            stmt = conn.createStatement();
+
+            String sql = "DELETE FROM shippingdetails WHERE shippingId = " + convShippingId;
+            System.out.println("SQL: " + sql); // Debug
+
+            int rs = stmt.executeUpdate(sql);
+            isSuccess = rs > 0;
+            System.out.println("Delete success: " + isSuccess); // Debug
+        } catch (Exception e) {
+            System.out.println("Error in deletion: " + e.getMessage()); // PRINT THE ERROR
+            e.printStackTrace();
+        }
+        return isSuccess;
+    }
+
+
+
 
 
 

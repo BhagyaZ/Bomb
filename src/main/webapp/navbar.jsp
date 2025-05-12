@@ -25,7 +25,7 @@
         <!-- Second row: list + right items -->
         <div class="navbar-bottom-row">
             <ul class="navbar-list">
-                <li>Home</li>
+                <li><a href="Home.jsp">Home</a></li>
                 <li>MotherBoard</li>
                 <li>CPU</li>
                 <li>RAM</li>

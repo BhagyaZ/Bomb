@@ -5,6 +5,7 @@
   Time: 22:06
   To change this template use File | Settings | File Templates.
 --%>
+<%@ include file="navbar.jsp" %> <!-- Include navbar -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,6 +99,6 @@
 
 
 
-
+<%@ include file="/footer.jsp" %>
 </body>
 </html>

@@ -134,7 +134,25 @@
         <url-pattern>/GetShippingByIdServlet</url-pattern>
     </servlet-mapping>
 
+    <!--orderReview-->
+    <servlet>
+        <servlet-name>OrderReviewServlet</servlet-name>
+        <servlet-class>bomb.OrderReviewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderReviewServlet</servlet-name>
+        <url-pattern>/OrderReviewServlet</url-pattern>
+    </servlet-mapping>
 
+    <!--DeleteShippingServlet-->
+    <servlet>
+        <servlet-name>DeleteShippingServlet</servlet-name>
+        <servlet-class>bomb.DeleteShippingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteShippingServlet</servlet-name>
+        <url-pattern>/DeleteShippingServlet</url-pattern>
+    </servlet-mapping>
 
 
 

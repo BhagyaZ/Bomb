@@ -14,12 +14,12 @@
 <body>
 
 <%
-    int shippingId = Integer.parseInt(request.getParameter("shippingId"));
+    int shippingId = Integer.parseInt(request.getParameter("shippingId").trim());
     String recipientName = request.getParameter("recipientName");
     String recipientAddress = request.getParameter("recipientAddress");
     String city = request.getParameter("city");
-    int recipientContactNo = Integer.parseInt(request.getParameter("recipientContactNo"));
-    int senderContactNo = Integer.parseInt(request.getParameter("senderContactNo"));
+    int recipientContactNo = Integer.parseInt(request.getParameter("recipientContactNo").trim());
+    int senderContactNo = Integer.parseInt(request.getParameter("senderContactNo").trim());
     String shippingMethod = request.getParameter("shippingMethod");
     String deliveryDate = request.getParameter("deliveryDate");
     String personalMsg = request.getParameter("personalMsg");

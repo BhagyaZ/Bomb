@@ -24,7 +24,11 @@ public class PaymentServlet extends HttpServlet {
             boolean isValid = CustomerController.paymentValidation(account_number, card_type, expirydate, cvv, pin, security_pin);
 
             if (isValid) {
-                request.setAttribute("message", "✅ Payment details are correct.");
+
+                // Redirect to Order Review page
+                response.sendRedirect("OrderReviewServlet");
+                return;
+
             } else {
                 request.setAttribute("message", "❌ Invalid payment details. Please check and try again.");
             }

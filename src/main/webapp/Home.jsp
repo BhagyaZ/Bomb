@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="adminnavbar.jsp" %> <!-- Include navbar -->
+<%@ include file="navbar.jsp" %> <!-- Include navbar -->
 
 <!DOCTYPE html>
 <html lang="en">

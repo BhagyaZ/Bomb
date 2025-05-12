@@ -1,4 +1,4 @@
-<%@ include file="adminnavbar.jsp" %> <!-- Include navbar -->
+<%@ include file="navbar.jsp" %> <!-- Include navbar -->
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,4 +1,4 @@
-<%@ include file="pmnavbar.jsp" %> <!-- Include navbar -->
+<%@ include file="pmnavbar.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +8,6 @@
 </head>
 <body>
 
-
-
-<!-- Main Form Section -->
 <main>
   <div class="form-container">
     <h2>Add New Product</h2>
@@ -35,8 +32,8 @@
   </div>
 </main>
 
-<!-- Footer -->
-<%-- Include footer --%>
+
+
 <%@ include file="footer.jsp" %>
 
 </body>

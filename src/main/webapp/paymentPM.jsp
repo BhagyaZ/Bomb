@@ -1,26 +1,29 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: asusb
+  Date: 5/7/2025
+  Time: 1:12 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="pmnavbar.jsp" %>
-<!DOCTYPE html>
 <html>
 <head>
     <title>Payments</title>
-    <link rel="stylesheet" href="payment.css">
+    <link rel="stylesheet" href="ordersPM.css">
 </head>
 <body>
-<main>
-    <div class="page-container">
-        <h2>Payments</h2>
-        <div class="card-grid">
-            <div class="dashboard-card">
-                <h3>Total Payments</h3>
-                <p class="stat-value">Rs. 150,000</p>
-            </div>
-            <div class="dashboard-card">
-                <h3>Pending Payments</h3>
-                <p class="stat-value">Rs. 25,000</p>
-            </div>
-        </div>
-    </div>
+<main class="form-container">
+    <h2>Payments</h2>
+    <p>Payment details are here.</p>
+    <ul>
+        <li>Total Payments<br> Rs.150,000</li>
+        <li>Pending Payments<br> Rs.25,000</li>
+
+    </ul>
 </main>
 <%@ include file="footer.jsp" %>
 </body>
 </html>
+
+

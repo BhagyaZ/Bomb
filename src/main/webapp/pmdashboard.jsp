@@ -35,7 +35,7 @@
                 <h3>Add Products</h3>
                 <p class="stat-value">+</p>
             </div>
-            <div class="dashboard-card action-card add-product" onclick="window.location.href='editproductform.jsp'">
+            <div class="dashboard-card action-card add-product" >
                 <h3>Edit Products</h3>
                 <p class="stat-value"></p>
             </div>

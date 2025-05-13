@@ -30,10 +30,10 @@
 <section class="product-section">
     <h2>Featured Products</h2>
     <div class="product-grid">
-        <div class="product-card"><span class="product-title">Product 1</span></div>
-        <div class="product-card"><span class="product-title">Product 2</span></div>
-        <div class="product-card"><span class="product-title">Product 3</span></div>
-        <div class="product-card"><span class="product-title">Product 4</span></div>
+        <div class="product-card"><span class="product-title"><a href="ProductPage.jsp" style="color: black; text-decoration: none;" >CPU</a></span></div>
+        <div class="product-card"><span class="product-title"><a href="ProductPage.jsp" style="color: black; text-decoration: none;" >RAM</a></span></div>
+        <div class="product-card"><span class="product-title"><a href="ProductPage.jsp" style="color: black; text-decoration: none;" >MotherBoards</a></span></div>
+        <div class="product-card"><span class="product-title"><a href="ProductPage.jsp" style="color: black; text-decoration: none;" >HDD</a></span></div>
     </div>
 </section>
 

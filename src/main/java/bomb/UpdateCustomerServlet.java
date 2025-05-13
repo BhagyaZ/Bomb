@@ -27,11 +27,22 @@ public class UpdateCustomerServlet extends HttpServlet {
         String personalMsg = request.getParameter("personalMsg");
         String date = request.getParameter("date");
 
+        String productName = request.getParameter("productName");
+        String productCode = request.getParameter("productCode");
+        String productPrice = request.getParameter("productPrice");
+        String quantity = request.getParameter("quantity");
+
         boolean isTrue;
         isTrue = CustomerController.updatedata(shippingId,recipientName,recipientAddress,city,recipientContactNo,senderContactNo,shippingMethod,deliveryDate,personalMsg,date);
 
         if(isTrue){
             List<CustomerModel> customer = CustomerController.getById(String.valueOf(shippingId));
+
+            // Pass these to the JSP
+            request.setAttribute("productName", productName);
+            request.setAttribute("productCode", productCode);
+            request.setAttribute("productPrice", productPrice);
+            request.setAttribute("quantity", quantity);
 
 //            request.setAttribute("customer",customer);
             request.setAttribute("allShipping", customer);

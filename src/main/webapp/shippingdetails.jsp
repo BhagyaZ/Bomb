@@ -8,6 +8,13 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<%
+  String productName = request.getParameter("productName");
+  String productCode = request.getParameter("productCode");
+  String productPrice = request.getParameter("productPrice");
+  String quantity = request.getParameter("quantity");
+%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +28,14 @@
   <h2>Insert Shipping Details</h2>
   <form action="<%= request.getContextPath() %>/CustomerInsertServlet" method="post">
 
-  <label for="recipientName">Recipient Name</label>
+    <!--Hidden product values-->
+    <input type="hidden" name="productName" value="<%= productName %>">
+    <input type="hidden" name="productCode" value="<%= productCode %>">
+    <input type="hidden" name="productPrice" value="<%= productPrice %>">
+    <input type="hidden" name="quantity" value="<%= quantity %>">
+
+
+    <label for="recipientName">Recipient Name</label>
     <input type="text" id="recipientName" name="recipientName" required>
 
     <label for="recipientAddress">Recipient Address</label>

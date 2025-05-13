@@ -25,9 +25,23 @@
     String personalMsg = request.getParameter("personalMsg");
 %>
 
+<%
+    String productName = request.getParameter("productName");
+    String productCode = request.getParameter("productCode");
+    String productPrice = request.getParameter("productPrice");
+    String quantity = request.getParameter("quantity");
+%>
+
+
 <div class="form-container">
     <h2>Update Shipping Details</h2>
     <form action="UpdateCustomerServlet" method="post">
+
+        <!--Hidden product values-->
+        <input type="hidden" name="productName" value="<%= productName %>">
+        <input type="hidden" name="productCode" value="<%= productCode %>">
+        <input type="hidden" name="productPrice" value="<%= productPrice %>">
+        <input type="hidden" name="quantity" value="<%= quantity %>">
 
         <label for="recipientName">Shipping ID</label>
         <input type="text" id="shippingId" name="shippingId" value="<%=shippingId%>" readonly>

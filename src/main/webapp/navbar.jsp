@@ -25,21 +25,22 @@
         <!-- Second row: list + right items -->
         <div class="navbar-bottom-row">
             <ul class="navbar-list">
-                <li><a href="Home.jsp">Home</a></li>
-                <li>MotherBoard</li>
-                <li>CPU</li>
-                <li>RAM</li>
+                <li><a href="Home.jsp" style="color: #ccc; text-decoration: none;" >Home</a></li>
                 <li class="dropdown">
-                    Storage
+                    <a href="ProductPage.jsp" style="color: #ccc; text-decoration: none;" >Products</a>
                     <ul class="dropdown-menu">
                         <li>HDD</li>
+                        <li>CPU</li>
+                        <li>MotherBoard</li>
                         <li>SSD</li>
                         <li>NVMe SSD</li>
+                        <li>Power Supply Unit</li>
+                        <li>RAM</li>
                     </ul>
                 </li>
-                <li>Power Supply Unit</li>
-                <li>GPU</li>
-                <li>CPU Coolers</li>
+                <li><a href="OrderReviewServlet" style="color: #ccc; text-decoration: none;" >Orders</a></li>
+                <li>About Us</li>
+                <li>Contact Us</li>
                 <li>Other</li>
             </ul>
 

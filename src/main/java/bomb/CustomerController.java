@@ -63,61 +63,6 @@ public class CustomerController {
     }
 
 
-    //display data functions
-
-        //return isSuccess;
-
-
-
-//    //getById
-//    public static List<CustomerModel> getById (String Id){
-//
-//        int convertedId = Integer.parseInt(Id);
-//
-//        ArrayList <CustomerModel> bomb = new ArrayList<>();
-//
-//        try {
-//            //DBconnection
-//            Connection con=DBConnectionAdmin.getConnection();
-//            stmt=con.createStatement();
-//
-//            //Query
-//            String sql ="select * from shippingdetails where id '"+convertedId+"'";
-//
-//            rs = stmt.executeQuery(sql);
-//
-//            while(rs.next()) {
-//                int shippingId = rs.getInt(1);
-//                String recipientName = rs.getString(2);
-//                String recipientAddress = rs.getString(3);
-//                String city = rs.getString(4);
-//                int recipientContactNo = rs.getInt(5);
-//                int senderContactNo = rs.getInt(6);
-//                String shippingMethod = rs.getString(7);
-//                String deliveryDate = rs.getString(8);
-//                String personalMsg = rs.getString(9);
-//                String date = rs.getString(10);
-//
-//                CustomerModel bk = new CustomerModel(shippingId,recipientName,recipientAddress,city,recipientContactNo,senderContactNo,shippingMethod,deliveryDate,personalMsg, date);
-//                bomb.add(bk);
-//
-//            }
-//
-//        }
-//        catch(Exception e) {
-//            e.printStackTrace();
-//        }
-//        return bomb;
-//    }
-//
-//    //GetAll data
-//    public static List<CustomerModel> getAllShippingDetails() {
-//        List<CustomerModel> shippingList = new ArrayList<>();
-//        Connection conn = null;
-//        Statement stmt = null;
-//        ResultSet rs = null;
-
-
     //getById
     public static List<CustomerModel> getById (String Id) {
 

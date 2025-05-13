@@ -16,11 +16,30 @@ public class GetShippingByIdServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
+//        List<CustomerModel> shipping = CustomerController.getById(id);
+//
+//        request.setAttribute("allShipping", shipping); // same attribute as before
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("reviewshippingdetails.jsp");
+//        dispatcher.forward(request, response);
+
+        String productName = request.getParameter("productName");
+        String productCode = request.getParameter("productCode");
+        String productPrice = request.getParameter("productPrice");
+        String quantity = request.getParameter("quantity");
+
         List<CustomerModel> shipping = CustomerController.getById(id);
 
-        request.setAttribute("allShipping", shipping); // same attribute as before
+        request.setAttribute("allShipping", shipping);
+
+        // Pass these to the JSP
+        request.setAttribute("productName", productName);
+        request.setAttribute("productCode", productCode);
+        request.setAttribute("productPrice", productPrice);
+        request.setAttribute("quantity", quantity);
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("reviewshippingdetails.jsp");
         dispatcher.forward(request, response);
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

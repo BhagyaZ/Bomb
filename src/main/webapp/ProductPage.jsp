@@ -1,5 +1,5 @@
 <!-- product.html -->
-<%@ include file="adminnavbar.jsp" %> <!-- Include navbar -->
+<%@ include file="navbar.jsp" %> <!-- Include navbar -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,9 +14,9 @@
     <h2 class="section-heading">Special Offers</h2>
     <div class="product-grid">
         <!-- Row 1 -->
-        <div class="product-box" ><a href="Product01.jsp" style="text-decoration: none; color: inherit;">Product 1</a>
+        <div class="product-box" ><a href="Product01.jsp" style="text-decoration: none; color: inherit;">Nebula RAM Module</a>
             </div>
-        <div class="product-box">Product 2</div>
+        <div class="product-box"><a href="Product02.jsp" style="text-decoration: none; color: inherit;">500GB NVMe SSD Gen4</a></div>
         <div class="product-box">Product 3</div>
         <div class="product-box">Product 4</div>
         <!-- Row 2 -->
@@ -35,8 +35,8 @@
     <h2 class="section-heading">Featured Products</h2>
     <div class="product-grid">
         <!-- 4 Rows of 4 boxes -->
-        <div class="product-box">Product A</div>
-        <div class="product-box">Product B</div>
+        <div class="product-box"><a href="Product03.jsp" style="text-decoration: none; color: inherit;">Mechanical Gaming Keyboard MK500</a></div>
+        <div class="product-box"><a href="Product04.jsp" style="text-decoration: none; color: inherit;">Gaming Mouse Pro X</a></div>
         <div class="product-box">Product C</div>
         <div class="product-box">Product D</div>
 

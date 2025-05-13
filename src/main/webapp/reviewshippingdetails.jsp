@@ -2,6 +2,26 @@
 <%@ page import="java.util.List" %>
 <%@ page import="bomb.CustomerModel" %>
 
+<%
+    String productName = (String) request.getAttribute("productName");
+    String productCode = (String) request.getAttribute("productCode");
+    String productPrice = (String) request.getAttribute("productPrice");
+    String quantity = (String) request.getAttribute("quantity");
+
+    double price = 0.0;
+    int qty = 1;
+    double total = 0.0;
+
+    try {
+        price = Double.parseDouble(productPrice);
+        qty = Integer.parseInt(quantity);
+        total = price * qty;
+    } catch (Exception e) {
+        // Handle format errors if any
+    }
+%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -141,15 +161,23 @@
                 <p><strong>Shipping Method:</strong> <%= item.getShippingMethod() %></p>
                 <p><strong>Delivery Date:</strong> <%= item.getDeliveryDate() %></p>
                 <p><strong>Personal Message:</strong> <%= item.getPersonalMsg() %></p>
-                <p><a class="btn-update-details" href="updateshippingdetails.jsp?shippingId=<%= item.getShippingId() %>
-                            &recipientName=<%= java.net.URLEncoder.encode(item.getRecipientName(), "UTF-8") %>
-                            &recipientAddress=<%= java.net.URLEncoder.encode(item.getRecipientAddress(), "UTF-8") %>
-                            &city=<%= java.net.URLEncoder.encode(item.getCity(), "UTF-8") %>
-                            &recipientContactNo=<%= item.getRecipientContactNo() %>
-                            &senderContactNo=<%= item.getSenderContactNo() %>
-                            &shippingMethod=<%= java.net.URLEncoder.encode(item.getShippingMethod(), "UTF-8") %>
-                            &deliveryDate=<%= java.net.URLEncoder.encode(item.getDeliveryDate(), "UTF-8") %>
-                            &personalMsg=<%= java.net.URLEncoder.encode(item.getPersonalMsg(), "UTF-8") %>">Update Details</a></p>
+                <p><a class="btn-update-details"
+                      href="updateshippingdetails.jsp?shippingId=<%= item.getShippingId() %>
+        &recipientName=<%= java.net.URLEncoder.encode(item.getRecipientName(), "UTF-8") %>
+        &recipientAddress=<%= java.net.URLEncoder.encode(item.getRecipientAddress(), "UTF-8") %>
+        &city=<%= java.net.URLEncoder.encode(item.getCity(), "UTF-8") %>
+        &recipientContactNo=<%= item.getRecipientContactNo() %>
+        &senderContactNo=<%= item.getSenderContactNo() %>
+        &shippingMethod=<%= java.net.URLEncoder.encode(item.getShippingMethod(), "UTF-8") %>
+        &deliveryDate=<%= java.net.URLEncoder.encode(item.getDeliveryDate(), "UTF-8") %>
+        &personalMsg=<%= java.net.URLEncoder.encode(item.getPersonalMsg(), "UTF-8") %>
+        &productName=<%= java.net.URLEncoder.encode(productName, "UTF-8") %>
+        &productCode=<%= java.net.URLEncoder.encode(productCode, "UTF-8") %>
+        &productPrice=<%= java.net.URLEncoder.encode(productPrice, "UTF-8") %>
+        &quantity=<%= java.net.URLEncoder.encode(quantity, "UTF-8") %>">
+                    Update Details
+                </a>
+                </p>
             </li>
             <%
                     }
@@ -168,11 +196,15 @@
     <!-- Order Summary Section -->
     <div class="order-summary">
         <h3>Order Summary</h3>
-        <p>Product: Custom Gift Box</p>
+        <p>Product: <%= productName %></p>
+        <p>Product Code: <%= productCode %></p>
+        <p>Quantity: <%= quantity %></p>
+        <p>Price per item: Rs. <%= productPrice %></p>
         <p>Shipping Price: Rs. 350.00</p>
         <p>Tax: Rs. 50.00</p>
-        <p><strong>Total: Rs. 400.00</strong></p>
+        <p><strong>Total: Rs. <%= total + 350 + 50 %></strong></p>
     </div>
+
 </div>
 </body>
 </html>

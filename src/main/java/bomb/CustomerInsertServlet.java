@@ -37,7 +37,7 @@ public class CustomerInsertServlet extends HttpServlet {
 
         if (shippingId != -1) {
             // redirect to servlet with shippingId
-           // response.sendRedirect("GetShippingByIdServlet?id=" + shippingId);
+            // response.sendRedirect("GetShippingByIdServlet?id=" + shippingId);
 
             response.sendRedirect("GetShippingByIdServlet?id=" + shippingId +
                     "&productName=" + java.net.URLEncoder.encode(productName, "UTF-8") +

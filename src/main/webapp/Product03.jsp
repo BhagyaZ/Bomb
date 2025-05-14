@@ -21,7 +21,7 @@
 <section class="product-detail">
     <div class="product-container">
         <div class="product-image">
-            <img src="images/mechanical-keyboard.jpg" alt="Keyboard Image">
+            <img src="images/desktop1.jpeg" alt="Keyboard Image">
         </div>
 
         <div class="product-info">

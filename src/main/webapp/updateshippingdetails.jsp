@@ -57,10 +57,14 @@
         <input type="text" id="city" name="city" value="<%=city%>" required>
 
         <label for="recipientContactNo">Recipient Contact No</label>
-        <input type="tel" id="recipientContactNo" name="recipientContactNo" value="<%=recipientContactNo%>" required>
+        <input type="tel" id="recipientContactNo" name="recipientContactNo"
+               value="<%= recipientContactNo %>" pattern="\d{9}" maxlength="9"
+               title="Phone number must be 10 digits" required>
 
         <label for="senderContactNo">Sender Contact No</label>
-        <input type="tel" id="senderContactNo" name="senderContactNo" value="<%=senderContactNo%>" required>
+        <input type="tel" id="senderContactNo" name="senderContactNo"
+               value="<%= senderContactNo %>" pattern="\d{9}" maxlength="9"
+               title="Phone number must be 10 digits" required>
 
         <label for="shippingMethod">Shipping Method</label>
         <select id="shippingMethod" name="shippingMethod" value="<%=shippingMethod%>" required>
@@ -70,7 +74,7 @@
         </select>
 
         <label for="deliveryDate">Delivery Date</label>
-        <input type="date" id="deliveryDate" name="deliveryDate" value="<%=deliveryDate%>" required>
+        <input type="date" id="deliveryDate" name="deliveryDate" value="<%= deliveryDate %>" required>
 
         <label for="personalMsg">Personal Message</label>
         <textarea id="personalMsg" name="personalMsg" rows="3"><%=personalMsg%></textarea>
@@ -82,6 +86,27 @@
         <%--    </form>--%>
     </form>
 </div>
+
+<script>
+    // Set min date to today for delivery date field
+    const deliveryDateInput = document.getElementById("deliveryDate");
+    const today = new Date().toISOString().split('T')[0];
+    deliveryDateInput.setAttribute("min", today);
+
+    // Phone number live validation
+    const phoneInputs = [document.getElementById("recipientContactNo"), document.getElementById("senderContactNo")];
+    phoneInputs.forEach(input => {
+        input.addEventListener("input", function () {
+            if (!/^\d*$/.test(this.value)) {
+                this.setCustomValidity("Only numbers are allowed");
+            } else if (this.value.length > 0 && this.value.length < 10) {
+                this.setCustomValidity("Phone number must be 10 digits");
+            } else {
+                this.setCustomValidity("");
+            }
+        });
+    });
+</script>
 
 
 </body>

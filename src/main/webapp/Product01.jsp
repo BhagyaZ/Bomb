@@ -13,7 +13,7 @@
 <section class="product-detail">
     <div class="product-container">
         <div class="product-image">
-            <img src="images/sample-product.jpg" alt="Product Image">
+            <img src="images/desktop.jpeg" alt="Product Image">
         </div>
 
         <div class="product-info">

@@ -33,7 +33,10 @@
 
         <div class="form-group">
             <label for="cardNumber">Card Number:</label>
-            <input type="text" id="cardNumber" name="account_number" required>
+            <input type="text" id="cardNumber" name="account_number"
+                   pattern="\d{10}" maxlength="10"
+                   title="Card number must be exactly 10 digits" required>
+
         </div>
 
         <div class="form-group">
@@ -46,22 +49,34 @@
 
         <div class="form-group">
             <label for="expiryDate">Expiry Date:</label>
-            <input type="text" id="expiryDate" name="expirydate" required>
+            <input type="text" id="expiryDate" name="expirydate"
+                   pattern="(0[1-9]|1[0-2])\/\d{2}" placeholder="MM/YY"
+                   title="Enter expiry date in MM/YY format" required>
+
         </div>
 
         <div class="form-group">
             <label for="cvv">CVV:</label>
-            <input type="text" id="cvv" name="cvv" required>
+            <input type="text" id="cvv" name="cvv"
+                   pattern="\d{3}" maxlength="3"
+                   title="CVV must be exactly 3 digits" required>
+
         </div>
 
         <div class="form-group">
             <label for="pin">PIN:</label>
-            <input type="text" id="pin" name="pin" required>
+            <input type="text" id="pin" name="pin"
+                   pattern="\d{4}" maxlength="4"
+                   title="PIN must be exactly 4 digits" required>
+
         </div>
 
         <div class="form-group">
             <label for="securityPin">Security Pin:</label>
-            <input type="text" id="securityPin" name="security_pin" required>
+            <input type="text" id="securityPin" name="security_pin"
+                   pattern="\d{4}" maxlength="4"
+                   title="Security Pin must be exactly 4 digits" required>
+
         </div>
 
         <div class="form-group">
@@ -95,6 +110,25 @@
     function closePopup() {
         document.getElementById("popup").style.display = "none";
     }
+
+
+    document.querySelector(".payment-form").addEventListener("submit", function(e) {
+        const card = document.getElementById("cardNumber").value;
+        const cvv = document.getElementById("cvv").value;
+        const pin = document.getElementById("pin").value;
+        const secPin = document.getElementById("securityPin").value;
+        const exp = document.getElementById("expiryDate").value;
+
+        const cardPattern = /^\d{10}$/;
+        const cvvPattern = /^\d{3}$/;
+        const pinPattern = /^\d{4}$/;
+        const expPattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
+
+        if (!cardPattern.test(card) || !cvvPattern.test(cvv) || !pinPattern.test(pin) || !pinPattern.test(secPin) || !expPattern.test(exp)) {
+            alert("Please ensure all fields are correctly formatted.");
+            e.preventDefault();
+        }
+    });
 </script>
 
 

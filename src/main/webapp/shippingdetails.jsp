@@ -44,10 +44,12 @@
     <input type="text" id="city" name="city" required>
 
     <label for="recipientContactNo">Recipient Contact No</label>
-    <input type="tel" id="recipientContactNo" name="recipientContactNo" required>
+    <input type="tel" id="recipientContactNo" name="recipientContactNo"
+           pattern="\d{10}" maxlength="10" title="Phone number must be 10 digits" required>
 
     <label for="senderContactNo">Sender Contact No</label>
-    <input type="tel" id="senderContactNo" name="senderContactNo" required>
+    <input type="tel" id="senderContactNo" name="senderContactNo"
+           pattern="\d{10}" maxlength="10" title="Phone number must be 10 digits" required>
 
     <label for="shippingMethod">Shipping Method</label>
     <select id="shippingMethod" name="shippingMethod" required>
@@ -57,7 +59,8 @@
     </select>
 
     <label for="deliveryDate">Delivery Date</label>
-    <input type="date" id="deliveryDate" name="deliveryDate" required>
+    <input type="date" id="deliveryDate" name="deliveryDate" required min="<%= java.time.LocalDate.now() %>">
+
 
     <label for="personalMsg">Personal Message</label>
     <textarea id="personalMsg" name="personalMsg" rows="3"></textarea>
@@ -69,6 +72,27 @@
     <%--    </form>--%>
   </form>
 </div>
+
+<script>
+  const phoneInputs = document.querySelectorAll('input[type="tel"]');
+  phoneInputs.forEach(input => {
+    input.addEventListener("input", function () {
+      if (!/^\d*$/.test(this.value)) {
+        this.setCustomValidity("Only numbers allowed");
+      } else if (this.value.length > 0 && this.value.length < 10) {
+        this.setCustomValidity("Phone number must be 10 digits");
+      } else {
+        this.setCustomValidity(""); // Valid
+      }
+    });
+  });
+
+  // Prevent selecting past delivery dates (JS fallback for browsers that ignore min attr)
+  const deliveryDateInput = document.getElementById("deliveryDate");
+  const today = new Date().toISOString().split('T')[0];
+  deliveryDateInput.setAttribute("min", today);
+</script>
+
 
 </body>
 </html>

@@ -21,7 +21,7 @@
 <section class="product-detail">
   <div class="product-container">
     <div class="product-image">
-      <img src="images/gaming-mouse.jpg" alt="Gaming Mouse Image">
+      <img src="images/desktop3.jpeg" alt="Gaming Mouse Image">
     </div>
 
     <div class="product-info">

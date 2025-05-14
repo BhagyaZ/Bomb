@@ -20,7 +20,7 @@
 <section class="product-detail">
     <div class="product-container">
         <div class="product-image">
-            <img src="images/nvme-ssd.jpg" alt="SSD Image">
+            <img src="images/desktop2.jpeg" alt="SSD Image">
         </div>
 
         <div class="product-info">

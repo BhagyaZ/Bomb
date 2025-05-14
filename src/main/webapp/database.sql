@@ -38,12 +38,50 @@ CREATE TABLE `monthlyreport` (
                                  PRIMARY KEY (`reportID`)
 )
 
-CREATE TABLE `user` (
-                        `id` int(11) NOT NULL AUTO_INCREMENT,
-                        `name` varchar(100) NOT NULL,
-                        `email` varchar(100) NOT NULL,
-                        `password` varchar(255) NOT NULL,
-                        `phone` varchar(20) DEFAULT NULL,
-                        PRIMARY KEY (`id`),
-                        UNIQUE KEY `email` (`email`)
+-- CREATE TABLE `user` (
+--                         `id` int(11) NOT NULL AUTO_INCREMENT,
+--                         `name` varchar(100) NOT NULL,
+--                         `email` varchar(100) NOT NULL,
+--                         `password` varchar(255) NOT NULL,
+--                         `phone` varchar(20) DEFAULT NULL,
+--                         PRIMARY KEY (`id`),
+--                         UNIQUE KEY `email` (`email`)
+-- )
+
+CREATE TABLE user (
+                      id int(11) NOT NULL AUTO_INCREMENT,
+                      name varchar(100) NOT NULL,
+                      email varchar(100) NOT NULL,
+                      password varchar(255) NOT NULL,
+                      phone varchar(20) DEFAULT NULL,
+                      role varchar(50) NOT NULL DEFAULT 'customer',
+                      PRIMARY KEY (id),
+                      UNIQUE KEY email (email)
+)
+
+CREATE TABLE `payments` (
+                            `account_number` varchar(16) NOT NULL,
+                            `card_type` varchar(50) NOT NULL,
+                            `expirydate` varchar(10) DEFAULT NULL,
+                            `cvv` varchar(3) NOT NULL,
+                            `pin` varchar(4) NOT NULL,
+                            `security_pin` varchar(4) NOT NULL,
+                            `shippingId` int DEFAULT NULL,
+                            PRIMARY KEY (`account_number`),
+                            KEY `fk_shipping` (`shippingId`),
+                            CONSTRAINT `fk_shipping` FOREIGN KEY (`shippingId`) REFERENCES `shippingdetails` (`shippingId`)
+)
+
+CREATE TABLE `shippingdetails` (
+                                   `shippingId` int NOT NULL AUTO_INCREMENT,
+                                   `recipientName` varchar(100) DEFAULT NULL,
+                                   `recipientAddress` varchar(1000) DEFAULT NULL,
+                                   `city` varchar(100) DEFAULT NULL,
+                                   `recipientContactNo` int DEFAULT NULL,
+                                   `senderContactNo` int DEFAULT NULL,
+                                   `shippingMethod` varchar(100) DEFAULT NULL,
+                                   `deliveryDate` date DEFAULT NULL,
+                                   `personalMsg` varchar(1000) DEFAULT NULL,
+                                   `date` datetime DEFAULT NULL,
+                                   PRIMARY KEY (`shippingId`)
 )

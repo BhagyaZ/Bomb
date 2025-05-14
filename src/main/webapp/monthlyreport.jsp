@@ -14,7 +14,6 @@
     <title>Title</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="monthlyreport.css">
-
 </head>
 <body>
     <div class="body-container">

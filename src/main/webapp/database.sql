@@ -38,16 +38,6 @@ CREATE TABLE `monthlyreport` (
                                  PRIMARY KEY (`reportID`)
 )
 
--- CREATE TABLE `user` (
---                         `id` int(11) NOT NULL AUTO_INCREMENT,
---                         `name` varchar(100) NOT NULL,
---                         `email` varchar(100) NOT NULL,
---                         `password` varchar(255) NOT NULL,
---                         `phone` varchar(20) DEFAULT NULL,
---                         PRIMARY KEY (`id`),
---                         UNIQUE KEY `email` (`email`)
--- )
-
 CREATE TABLE user (
                       id int(11) NOT NULL AUTO_INCREMENT,
                       name varchar(100) NOT NULL,
@@ -56,7 +46,7 @@ CREATE TABLE user (
                       phone varchar(20) DEFAULT NULL,
                       role varchar(50) NOT NULL DEFAULT 'customer',
                       PRIMARY KEY (id),
-                      UNIQUE KEY email (email)
+                      UNIQUE KEY email (email)
 )
 
 CREATE TABLE `payments` (
@@ -85,3 +75,15 @@ CREATE TABLE `shippingdetails` (
                                    `date` datetime DEFAULT NULL,
                                    PRIMARY KEY (`shippingId`)
 )
+=======
+CREATE TABLE `user` (
+                        `id` int(11) NOT NULL AUTO_INCREMENT,
+                        `name` varchar(100) NOT NULL,
+                        `email` varchar(100) NOT NULL,
+                        `password` varchar(255) NOT NULL,
+                        `phone` varchar(20) DEFAULT NULL,
+                        `role` varchar(50) NOT NULL DEFAULT 'customer',
+                        PRIMARY KEY (`id`),
+                        UNIQUE KEY `email` (`email`)
+)
+>>>>>>> Stashed changes

@@ -7,15 +7,14 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     scroll-behavior: smooth;
-    background-color: #d4f0fc; /* Main Background: Light blue */
-    color: #02577a; /* Text Color: Dark blue */
+    background-color: #d4f0fc;
+    color: #02577a;
 }
 
-/* Upper section (header-like) */
 .upper-body {
     height: 100vh;
-    background-color: #01303f; /* Header & Footer Background: Dark teal blue */
-    color: #ffffff; /* White text for contrast */
+    background-color: #01303f;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,21 +33,19 @@ body {
 }
 
 .upper-body h2 {
-    font-size: 2.5rem; /* Subtitle size */
+    font-size: 2.5rem;
     text-align: center;
-    color: #ffffff; /* White for contrast on dark background */
+    color: #ffffff;
     margin-top: 20px;
 }
 
-/* Style for the letter O inside span */
 .letter-icon {
-    font-size: 4rem; /* Make the "O" large */
-    color: #02a9f7; /* Bright red for the "O" to make it stand out */
+    font-size: 4rem;
+    color: #02a9f7;
 }
 
-/* Optionally, you can style the rest of the text differently (MB part) */
 .upper-body h1 span + span {
-    color: #d4f0fc; /* Gold color for 'MB' */
+    color: #d4f0fc;
 }
 
 @keyframes slide-up {
@@ -71,7 +68,7 @@ body {
 /* Lower section */
 .lower-body {
     height: 70vh;
-    background-color: #d4f0fc; /* Main Background: Light blue */
+    background-color: #d4f0fc;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -81,16 +78,16 @@ body {
 }
 
 .login-card {
-    background: rgba(255, 255, 255, 0.2); /* semi-transparent */
-    backdrop-filter: blur(10px); /* blur effect */
-    -webkit-backdrop-filter: blur(10px); /* for Safari */
+    background: #ffffff;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* shadow for depth */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     padding: 2rem;
     max-width: 400px;
     width: 100%;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.3); /* light border */
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Optional: make the text and button readable */
@@ -98,6 +95,7 @@ body {
     color: #01303f;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
+    font-weight: bold;
 }
 
 .login-card button {
@@ -117,7 +115,7 @@ body {
     transform: scale(1.05);
 }
 
-.lower-body p {
+.lower-body h2 {
     font-size: 1.6rem;
     margin-bottom: 1.5rem;
     color: #02577a;

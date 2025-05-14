@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+    background-color: #d4f0fc; /* Main Background: Light blue */
+    color: #02577a; /* Text Color: Dark blue */
+}
+
+/* Upper section (header-like) */
+.upper-body {
+    height: 100vh;
+    background-color: #01303f; /* Header & Footer Background: Dark teal blue */
+    color: #ffffff; /* White text for contrast */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+}
+
+.upper-body h1 {
+    animation: slide-up 1s ease-out;
+    font-size: 4rem; /* Increased size for better visibility */
+    font-weight: bold;
+    text-align: center;
+    color: #d4f0fc; /* Gold color for energetic contrast */
+    letter-spacing: 2px;
+}
+
+.upper-body h2 {
+    font-size: 2.5rem; /* Subtitle size */
+    text-align: center;
+    color: #ffffff; /* White for contrast on dark background */
+    margin-top: 20px;
+}
+
+/* Style for the letter O inside span */
+.letter-icon {
+    font-size: 4rem; /* Make the "O" large */
+    color: #02a9f7; /* Bright red for the "O" to make it stand out */
+}
+
+/* Optionally, you can style the rest of the text differently (MB part) */
+.upper-body h1 span + span {
+    color: #d4f0fc; /* Gold color for 'MB' */
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.upper-body h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #d4f0fc;
+}
+
+/* Lower section */
+.lower-body {
+    height: 70vh;
+    background-color: #d4f0fc; /* Main Background: Light blue */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.2); /* semi-transparent */
+    backdrop-filter: blur(10px); /* blur effect */
+    -webkit-backdrop-filter: blur(10px); /* for Safari */
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* shadow for depth */
+    padding: 2rem;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* light border */
+}
+
+/* Optional: make the text and button readable */
+.login-card p {
+    color: #01303f;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.login-card button {
+    padding: 12px 26px;
+    font-size: 1rem;
+    background-color: #02a9f7;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-card button:hover {
+    background-color: #89d6fb;
+    color: #01303f;
+    transform: scale(1.05);
+}
+
+.lower-body p {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    color: #02577a;
+    font-weight: 200;
+}
+
+/* Button styling */
+.lower-body button {
+    padding: 12px 26px;
+    font-size: 1rem;
+    background-color: #02a9f7; /* Button Color: Vibrant blue */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lower-body button:hover {
+    background-color: #89d6fb; /* Card Background: Light blue on hover */
+    color: #01303f; /* Dark teal color on hover */
+    transform: scale(1.05);
+}

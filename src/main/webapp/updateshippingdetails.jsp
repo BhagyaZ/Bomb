@@ -99,7 +99,7 @@
         input.addEventListener("input", function () {
             if (!/^\d*$/.test(this.value)) {
                 this.setCustomValidity("Only numbers are allowed");
-            } else if (this.value.length > 0 && this.value.length < 10) {
+            } else if (this.value.length > 0 && this.value.length < 9) {
                 this.setCustomValidity("Phone number must be 10 digits");
             } else {
                 this.setCustomValidity("");

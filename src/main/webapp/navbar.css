@@ -143,6 +143,46 @@
     cursor: pointer;
     position: relative; /* Needed for cart-badge */
 }
+.navbar-profile-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.navbar-profile a {
+    color: white; /* White icon */
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.logout-popup {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 100;
+    white-space: nowrap;
+    margin-bottom: 5px;
+    transition: opacity 0.2s ease;
+}
+
+.logout-popup a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.logout-popup a:hover {
+    color: #e74c3c;
+}
+
+/* Show logout on hover */
+.navbar-profile-wrapper:hover .logout-popup {
+    display: block;
+}
 
 .cart-badge {
     position: absolute;

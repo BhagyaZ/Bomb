@@ -1,5 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="adminnavbar.jsp" %> <!-- Include navbar -->
+
+<%-- Session check --%>
+<%@ page import="user.UserModel" %>
+<%
+  UserModel user = (UserModel) session.getAttribute("user");
+  if (user == null || !"admin".equals(user.getRole())) {
+    response.sendRedirect("index.jsp");
+    return;
+  }
+%>
 <html>
 <head>
   <title>Admin Dashboard - Graphs</title>

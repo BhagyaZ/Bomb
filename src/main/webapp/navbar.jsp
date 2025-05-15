@@ -11,7 +11,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="navbar.css?v=1">
+    <link rel="stylesheet" type="text/css" href="navbar.css?v=2">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
@@ -54,9 +54,17 @@
                     />
                 </div>
 
-                <div class="navbar-profile" onclick="window.location.href='userProfile.jsp';" style="cursor: pointer;">
-                    <i class="fa fa-user"></i>
+                <div class="navbar-profile-wrapper">
+                    <div class="navbar-profile">
+                        <a href="userProfile.jsp">
+                            <i class="fa fa-user"></i>
+                        </a>
+                    </div>
+                    <div class="logout-popup">
+                        <a href="LogoutServlet"><i class="fa fa-sign-out"></i> Logout</a>
+                    </div>
                 </div>
+
 
                 <div class="navbar-cart">
                     <i class="fa fa-cart-shopping"></i>
@@ -68,5 +76,24 @@
         </div>
     </div>
 </nav>
+<script>
+    const wrapper = document.getElementById('profileWrapper');
+    const popup = document.getElementById('logoutPopup');
+    let showTimer, hideTimer;
+
+    wrapper.addEventListener('mouseenter', () => {
+        clearTimeout(hideTimer);
+        showTimer = setTimeout(() => {
+            popup.style.display = 'block';
+        }, 1000); // 1 second delay
+    });
+
+    wrapper.addEventListener('mouseleave', () => {
+        clearTimeout(showTimer);
+        hideTimer = setTimeout(() => {
+            popup.style.display = 'none';
+        }, 100); // optional quick hide
+    });
+</script>
 </body>
 </html>

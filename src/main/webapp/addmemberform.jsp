@@ -6,6 +6,17 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%-- Session check --%>
+<%@ page import="user.UserModel" %>
+<%
+    UserModel user = (UserModel) session.getAttribute("user");
+    if (user == null || !"admin".equals(user.getRole())) {
+        response.sendRedirect("index.jsp");
+        return;
+    }
+%>
+
 <html>
 <head>
     <title>Title</title>

@@ -8,14 +8,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - Spare Part Management</title>
     <link rel="stylesheet" href="HomeStyle.css" />
+
+    <style>
+        .ad-box {
+            background: linear-gradient(90deg, #d0f0fd, #a0c4ff);
+            color: white;
+        }
+
+        .product-card {
+            background: linear-gradient(90deg, #d0f0fd, #a0c4ff);
+            color: white;
+        }
+    </style>
+
+
 </head>
 <body>
 
 <!-- Top Advertisement Banner (Automatic Image Change) -->
 <section class="top-banner">
-    <img class="top-banner-img" src="images/banner1.jpg" alt="Ad 1">
-    <img class="top-banner-img" src="images/banner2.jpg" alt="Ad 2">
-    <img class="top-banner-img" src="images/banner3.jpg" alt="Ad 3">
+    <img class="top-banner-img" src="images/ad1.jpg" alt="Ad 1">
+    <img class="top-banner-img" src="images/ad2.jpg" alt="Ad 2">
+    <img class="top-banner-img" src="images/ad3.jpg" alt="Ad 3">
 </section>
 
 <!-- Advertisement Boxes -->

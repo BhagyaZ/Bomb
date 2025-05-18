@@ -2,6 +2,16 @@
 <%@ page import="java.util.List" %>
 <%@ page import="bomb.CustomerModel" %>
 
+<%-- Session check --%>
+<%@ page import="user.UserModel" %>
+<%
+    UserModel user = (UserModel) session.getAttribute("user");
+    if (user == null || !"customer".equals(user.getRole())) {
+        response.sendRedirect("index.jsp");
+        return;
+    }
+%>
+
 <%
     String productName = (String) request.getAttribute("productName");
     String productCode = (String) request.getAttribute("productCode");

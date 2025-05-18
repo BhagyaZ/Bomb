@@ -1,6 +1,18 @@
 <%@ page import="java.util.List" %>
 <%@ page import="bomb.CustomerModel" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%-- Session check --%>
+<%@ page import="user.UserModel" %>
+<%
+    UserModel user = (UserModel) session.getAttribute("user");
+    if (user == null || !"customer".equals(user.getRole())) {
+        response.sendRedirect("index.jsp");
+        return;
+    }
+%>
+
+
 <%@ include file="navbar.jsp" %> <!-- Include navbar -->
 <!DOCTYPE html>
 <html lang="en">
@@ -126,10 +138,33 @@
 
 <section class="main-box">
     <h2>📋 Order Review</h2>
+
+    <input
+            type="text"
+            id="searchinput"
+            placeholder="Search..."
+            style="
+        display: block;
+        margin: 0 auto 30px auto;
+        padding: 12px 20px;
+        width: 60%;
+        max-width: 500px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 30px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        outline: none;
+        transition: box-shadow 0.3s ease;
+    "
+            onfocus="this.style.boxShadow='0 6px 16px rgba(0,0,0,0.15)'"
+            onblur="this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'"
+    />
+
+
     <section class="orders">
         <% if (orders != null && !orders.isEmpty()) { %>
         <% for(CustomerModel c : orders) { %>
-        <details>
+        <details class="order-item">
             <summary>Shipping ID: <%= c.getShippingId() %> | Date: <%= c.getDate() %></summary>
             <div class="detail-content">
                 <p><strong>Recipient:</strong> <%= c.getRecipientName() %></p>
@@ -166,6 +201,19 @@
             }
         });
     });
+
+    // Search function for filtering orders
+    document.getElementById("searchinput").addEventListener("input", function () {
+        const filter = this.value.toLowerCase();
+        const orders = document.querySelectorAll(".order-item");
+
+        orders.forEach(order => {
+            const text = order.textContent.toLowerCase();
+            order.style.display = text.includes(filter) ? "" : "none";
+        });
+    });
+
+
 </script>
 
 <%@ include file="footer.jsp" %>

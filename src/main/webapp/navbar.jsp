@@ -54,13 +54,13 @@
                     />
                 </div>
 
-                <div class="navbar-profile-wrapper">
+                <div class="navbar-profile-wrapper" id="profileWrapper">
                     <div class="navbar-profile">
                         <a href="userProfile.jsp">
                             <i class="fa fa-user"></i>
                         </a>
                     </div>
-                    <div class="logout-popup">
+                    <div class="logout-popup" id="logoutPopup">
                         <a href="LogoutServlet"><i class="fa fa-sign-out"></i> Logout</a>
                     </div>
                 </div>
@@ -85,15 +85,20 @@
         clearTimeout(hideTimer);
         showTimer = setTimeout(() => {
             popup.style.display = 'block';
-        }, 1000); // 1 second delay
+        }, 1000);
     });
 
     wrapper.addEventListener('mouseleave', () => {
         clearTimeout(showTimer);
         hideTimer = setTimeout(() => {
             popup.style.display = 'none';
-        }, 100); // optional quick hide
+        }, 100);
     });
+
+    wrapper.addEventListener('mouseenter', showPopup);
+    wrapper.addEventListener('mouseleave', hidePopup);
+    popup.addEventListener('mouseenter', showPopup);
+    popup.addEventListener('mouseleave', hidePopup);
 </script>
 </body>
 </html>

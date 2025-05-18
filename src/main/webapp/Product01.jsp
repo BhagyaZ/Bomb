@@ -1,3 +1,13 @@
+<%-- Session check --%>
+<%@ page import="user.UserModel" %>
+<%
+    UserModel user = (UserModel) session.getAttribute("user");
+    if (user == null || !"customer".equals(user.getRole())) {
+        response.sendRedirect("index.jsp");
+        return;
+    }
+%>
+
 <%@ include file="navbar.jsp" %> <!-- Include navbar -->
 
 <!DOCTYPE html>

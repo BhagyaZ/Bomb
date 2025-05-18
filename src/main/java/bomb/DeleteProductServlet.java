@@ -27,7 +27,7 @@ public class DeleteProductServlet extends HttpServlet {
         if (isTrue) {
             String alertMessage = "Product deleted successfully";
             request.setAttribute("alertMessage", alertMessage);
-            // You can redirect or forward as needed
+
             response.getWriter().println("<script>alert('" + alertMessage + "');window.location.href='ProductDetails.jsp';</script>");
 
 

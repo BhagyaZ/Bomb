@@ -103,6 +103,43 @@
     cursor: pointer;
     position: relative; /* Needed for cart-badge */
 }
+.navbar-profile-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.navbar-profile a {
+    color: white; /* White icon */
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.logout-popup {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #333;
+    padding: 8px 12px;
+    border-radius: 5px;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.logout-popup a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.logout-popup a:hover {
+    color: #e74c3c;
+}
+
+/* Show logout on hover */
+.navbar-profile-wrapper:hover .logout-popup {
+    display: block;
+}
 
 .cart-badge {
     position: absolute;

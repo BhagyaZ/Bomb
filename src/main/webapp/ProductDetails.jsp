@@ -23,6 +23,7 @@
 <main>
   <div class="form-container">
     <h2>Available Products</h2>
+    <input type="text" id="searchInput" placeholder="search">
     <%
       List<ProductModel> products = ProductController.getAll();
       if (products == null || products.isEmpty()) {
@@ -32,7 +33,7 @@
     } else {
       for (ProductModel p : products) {
     %>
-    <div style="margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #ccc;">
+    <div class ="product-card" style="margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #ccc;">
       <p><strong>Name:</strong> <%= p.getName() %></p>
       <p><strong>Category:</strong> <%= p.getCategory() %></p>
       <p><strong>Price:</strong> Rs <%= p.getPrice() %></p>
@@ -53,5 +54,51 @@
 </main>
 
 <%@ include file="footer.jsp" %>
+<script>
+  function filterDivs() {
+    const input = document.getElementById("searchInput");
+    const filter = input.value.toUpperCase();
+    const cards = document.getElementsByClassName("product-card");
+
+    for (let i = 0; i < cards.length; i++) {
+      const card = cards[i];
+      const text = card.textContent || card.innerText;
+
+      if (text.toUpperCase().includes(filter)) {
+        card.style.display = "";
+      } else {
+        card.style.display = "none";
+      }
+    }
+  }
+
+  window.onload = function () {
+    document.getElementById("searchInput").addEventListener("input", filterDivs);
+  }
+</script>
+
+<script>
+  function filterDivs() {
+    const input = document.getElementById("searchInput");
+    const filter = input.value.toUpperCase();
+    const cards = document.getElementsByClassName("product-card");
+
+    for (let i = 0; i < cards.length; i++) {
+      const card = cards[i];
+      const text = card.textContent || card.innerText;
+
+      if (text.toUpperCase().includes(filter)) {
+        card.style.display = "";
+      } else {
+        card.style.display = "none";
+      }
+    }
+  }
+
+  window.onload = function () {
+    document.getElementById("searchInput").addEventListener("input", filterDivs);
+  }
+</script>
+
 </body>
 </html>

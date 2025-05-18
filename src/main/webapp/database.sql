@@ -75,7 +75,7 @@ CREATE TABLE `shippingdetails` (
                                    `date` datetime DEFAULT NULL,
                                    PRIMARY KEY (`shippingId`)
 )
-=======
+
 CREATE TABLE `user` (
                         `id` int(11) NOT NULL AUTO_INCREMENT,
                         `name` varchar(100) NOT NULL,
@@ -86,4 +86,4 @@ CREATE TABLE `user` (
                         PRIMARY KEY (`id`),
                         UNIQUE KEY `email` (`email`)
 )
->>>>>>> Stashed changes
+

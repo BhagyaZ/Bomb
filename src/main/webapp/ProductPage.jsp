@@ -8,6 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Products</title>
     <link rel="stylesheet" href="ProductPage.css">
+
+    <style>
+        .product-box{
+            background: linear-gradient(90deg, #f0f0f0, #d9d9d9);
+        }
+
+    </style>
+
 </head>
 <body>
 <section class="product-section">

@@ -74,6 +74,46 @@
     transform: scaleX(1);
 }
 
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    list-style: none;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1f1f1f;
+    color: #ccc;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    z-index: 100;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    list-style-type: none;
+    padding: 0.3rem 0;
+    white-space: nowrap;
+}
+
+.dropdown-menu li:hover {
+    transform: scale(1.05);
+    border-bottom: 2px solid white;
+    padding-bottom: 2px;
+}
+
 /* Right side */
 .navbar-right {
     display: flex;
@@ -102,6 +142,43 @@
     font-size: 1.4rem;
     cursor: pointer;
     position: relative; /* Needed for cart-badge */
+}
+.navbar-profile-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.navbar-profile a {
+    color: white; /* White icon */
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.logout-popup {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #333;
+    padding: 8px 12px;
+    border-radius: 5px;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.logout-popup a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.logout-popup a:hover {
+    color: #e74c3c;
+}
+
+/* Show logout on hover */
+.navbar-profile-wrapper:hover .logout-popup {
+    display: block;
 }
 
 .cart-badge {

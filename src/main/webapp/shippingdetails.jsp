@@ -7,6 +7,16 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<%-- Session check --%>
+<%@ page import="user.UserModel" %>
+<%
+  UserModel user = (UserModel) session.getAttribute("user");
+  if (user == null || !"customer".equals(user.getRole())) {
+    response.sendRedirect("index.jsp");
+    return;
+  }
+%>
+
 <%
   String productName = request.getParameter("productName");
   String productCode = request.getParameter("productCode");
